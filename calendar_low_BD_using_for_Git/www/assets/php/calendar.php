@@ -9,7 +9,6 @@ if(isset($_POST['right_button']))
 {
 	if(isset($_POST['next_year']))
 	{
-		//echo "1";
 		$year = $_POST['next_year'];
 	}
 	else
@@ -51,6 +50,19 @@ else
 	$year = date('y');
 	$month = date('m');
 }
+
+/*if(isset($_POST['day']))
+{
+	$day = $_POST['day'];
+}
+else if(isset($_POST['chosen_day']))
+{
+	$day = $_POST['chosen_day'];
+}
+else
+{
+	$day = date('d');
+}*/
 
 //echo $year."-".$month."-".$day;
 
@@ -115,7 +127,7 @@ $month = $date_info['mon'];
 $getting_prev_month_time = $month_start - 86400;
 $prev_month = date ("m", $getting_prev_month_time);
 //echo $getting_prev_month_time." = ".$prev_month;
-
+//
 ?>
 <div class = "calendar">
 	<form name = "embedded_calendar_form" action = "" method = "POST">
@@ -280,6 +292,9 @@ $prev_month = date ("m", $getting_prev_month_time);
 						$day++;
 						$weekday++;
 						//check if date we have $year, $month, $day is holiday END
+						
+						
+						//$day = $maxdays+1;
 					}			
 				?>
 				</tr>

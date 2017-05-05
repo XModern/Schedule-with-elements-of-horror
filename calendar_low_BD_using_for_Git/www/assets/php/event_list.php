@@ -3,6 +3,7 @@
 	</head>
 	<body>
 		<a href = "/assets/php/calendar.php">Back to calendar</a>
+		<br/>
 		<?php
 			require_once("/connector.php");
 			$year = $_GET['year'];
@@ -21,7 +22,7 @@
 			$searchDate = $year."-".$month."-".$day;
 			echo "Date: ".$searchDate."<br/>";
 			
-			$all_events_by_this_date_request = "Select * from minimized_using_db_calendar_db.calendar where event_date = '".$searchDate."';";
+			$all_events_by_this_date_request = "Select * from schedule.announcement where date = '".$searchDate."';";
 			$all_events_by_this_date = mysqli_query($server_connect, $all_events_by_this_date_request);
 			if($all_events_by_this_date!=null)
 			{
@@ -32,7 +33,10 @@
 						<font>Date</font>
 					</td>
 					<td>
-						<font>Event</font>
+						<font>Class number</font>
+					</td>
+					<td>
+						<font>Lecturer</font>
 					</td>
 				</tr>
 		<?php
@@ -42,10 +46,22 @@
 		?>
 					<tr>
 						<td>
-							<font><? echo $row['event_date']?></font>
+							<font><? echo $row['date']?></font>
 						</td>
 						<td>
-							<font><? echo $row['even']?></font>
+							<font><? echo $row['class_num']?></font>
+						</td>
+						<td>
+		<?php
+							$chosen_lecturer_request = "Select fio, department from schedule.lecturer where id_user = '".$row['lecturer']."';";
+							$chosen_lecturer = mysqli_query($server_connect, $chosen_lecturer_request);
+							while($row_sec = mysqli_fetch_assoc($chosen_lecturer))
+							{
+		?>
+							<font><? echo $row_sec['fio']." (".$row_sec['department'].")"?></font>
+		<?php
+							}
+		?>
 						</td>
 					</tr>
 		<?php
