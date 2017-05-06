@@ -237,7 +237,7 @@ $prev_month = date ("m", $getting_prev_month_time);
 						{
 							if($month < 10 and "0$month" == date('m'))
 							{
-								if($year == date('y'))
+								if($year == "20".date('y'))
 								{
 									$cell_type = "today";
 								}
@@ -248,7 +248,7 @@ $prev_month = date ("m", $getting_prev_month_time);
 							}
 							else if($month >= 10 and "$month" == date('m'))
 							{
-								if($year == date('y'))
+								if($year == "20".date('y'))
 								{
 									$cell_type = "today";
 								}
@@ -272,17 +272,21 @@ $prev_month = date ("m", $getting_prev_month_time);
 						//check if date we have $year, $month, $day is holiday BEGIN
 						if($weekday == 5 || $weekday == 6)
 						{
-							$cell_type = "holiday";
+							if($cell_type != "today")
+							{
+								$cell_type = "holiday";
+							}
 						}
+						//check if date we have $year, $month, $day is holiday END
 						
 						$color = "white";
-						if($cell_type == "holiday")
-						{
-							$color = "red";
-						}
-						else if($cell_type == "today")
+						if($cell_type == "today")
 						{
 							$color = "yellow";
+						}
+						else if($cell_type == "holiday")
+						{
+							$color = "red";
 						}
 				?>
 					<td bgcolor = '<?= $color?>'>
@@ -291,7 +295,6 @@ $prev_month = date ("m", $getting_prev_month_time);
 				<?php
 						$day++;
 						$weekday++;
-						//check if date we have $year, $month, $day is holiday END
 						
 						
 						//$day = $maxdays+1;

@@ -23,7 +23,7 @@
 			echo "Date: ".$searchDate."<br/>";
 			
 			$all_events_by_this_date_request = "Select * from schedule.announcement where date = '".$searchDate."';";
-			$all_events_by_this_date = mysqli_query($server_connect, $all_events_by_this_date_request);
+			$all_events_by_this_date = $server_connect_pdo->query($all_events_by_this_date_request);
 			if($all_events_by_this_date!=null)
 			{
 		?>
@@ -40,7 +40,7 @@
 					</td>
 				</tr>
 		<?php
-				while($row = mysqli_fetch_assoc($all_events_by_this_date))
+				while($row = $all_events_by_this_date->fetch(PDO::FETCH_ASSOC))
 				{
 					//echo $row['event_date']." - ".$row['even']."<br/>";
 		?>
@@ -54,8 +54,8 @@
 						<td>
 		<?php
 							$chosen_lecturer_request = "Select fio, department from schedule.lecturer where id_user = '".$row['lecturer']."';";
-							$chosen_lecturer = mysqli_query($server_connect, $chosen_lecturer_request);
-							while($row_sec = mysqli_fetch_assoc($chosen_lecturer))
+							$chosen_lecturer = $server_connect_pdo->query($chosen_lecturer_request);
+							while($row_sec = $chosen_lecturer->fetch(PDO::FETCH_ASSOC))
 							{
 		?>
 							<font><? echo $row_sec['fio']." (".$row_sec['department'].")"?></font>
