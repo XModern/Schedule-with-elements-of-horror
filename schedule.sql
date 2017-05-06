@@ -24,12 +24,13 @@ CREATE TABLE `advert` (
   `id_ad` int(11) NOT NULL AUTO_INCREMENT,
   `date` date DEFAULT NULL,
   `ad` text,
+  `class` varchar(40) DEFAULT '-',
   PRIMARY KEY (`id_ad`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=cp1251;
 
 /*Data for the table `advert` */
 
-insert  into `advert`(`id_ad`,`date`,`ad`) values (1,'2017-05-15','Занятие Организация баз данных и знаний переносится в ауд.519');
+insert  into `advert`(`id_ad`,`date`,`ad`,`class`) values (1,'2017-05-15','Занятие \"Организация баз данных и знаний\" переносится в ауд.519','Организация баз данных и знаний');
 
 /*Table structure for table `announcement` */
 
@@ -107,11 +108,11 @@ CREATE TABLE `group` (
   KEY `group_ibfk_2` (`speciality`),
   CONSTRAINT `group_ibfk_1` FOREIGN KEY (`faculty`) REFERENCES `faculty` (`name`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `group_ibfk_2` FOREIGN KEY (`speciality`) REFERENCES `speciality` (`name_spec`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=cp1251;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=cp1251;
 
 /*Data for the table `group` */
 
-insert  into `group`(`id_group`,`faculty`,`speciality`,`course`,`group_name`) values (1,'Факультет компьютерных наук','Компьютерные науки',3,'КС-32'),(2,'Факультет компьютерных наук','Компьютерные науки',3,'КС-31'),(3,'Факультет компьютерных наук','Системная инженерия',3,'КУ-31');
+insert  into `group`(`id_group`,`faculty`,`speciality`,`course`,`group_name`) values (1,'Факультет компьютерных наук','Компьютерные науки',3,'КС-32'),(2,'Факультет компьютерных наук','Компьютерные науки',3,'КС-31'),(3,'Факультет компьютерных наук','Системная инженерия',3,'КУ-31'),(5,'Факультет компьютерных наук','Безпасность информационных систем',3,'КБ-31');
 
 /*Table structure for table `lecturer` */
 
@@ -128,7 +129,7 @@ CREATE TABLE `lecturer` (
 
 /*Data for the table `lecturer` */
 
-insert  into `lecturer`(`fio`,`id_user`,`degree`,`department`) values ('Рева Сергей Николаевич',1,'старший преподаватель','Кафедра электроники и управляющих систем'),('Кабалянц Пётр Степанович ',2,'доцент','Кафедра электроники и управляющих систем'),('Лазурик Валентина Михайловна',3,'старший преподавательб','Кафедра искусственного интеллекта и программного обеспечения'),('Лосев Юрий Иванович',4,'','Кафедра теоретической и прикладной системотехники');
+insert  into `lecturer`(`fio`,`id_user`,`degree`,`department`) values ('Рева Сергей Николаевич',1,'старший преподаватель','Кафедра электроники и управляющих систем'),('Кабалянц Петр Степанович',2,'доцент','Кафедра электроники и управляющих систем'),('Лазурик Валентина Михайловна',3,'старший преподаватель','Кафедра искусственного интеллекта и программного обеспечения'),('Лосев Юрий Иванович',4,'','Кафедра теоретической и прикладной системотехники');
 
 /*Table structure for table `lesson` */
 
@@ -144,6 +145,7 @@ CREATE TABLE `lesson` (
   `type` varchar(40) DEFAULT NULL,
   `classroom` varchar(40) DEFAULT NULL,
   `subgroup` int(11) DEFAULT NULL,
+  `parity` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_lesson`),
   KEY `group` (`group`),
   KEY `class` (`class`),
@@ -151,11 +153,11 @@ CREATE TABLE `lesson` (
   CONSTRAINT `lesson_ibfk_1` FOREIGN KEY (`group`) REFERENCES `group` (`id_group`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `lesson_ibfk_2` FOREIGN KEY (`class`) REFERENCES `class` (`name`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `lesson_ibfk_3` FOREIGN KEY (`lecturer`) REFERENCES `lecturer` (`id_user`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=cp1251;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=cp1251;
 
 /*Data for the table `lesson` */
 
-insert  into `lesson`(`id_lesson`,`day`,`class_num`,`group`,`class`,`lecturer`,`type`,`classroom`,`subgroup`) values (1,'Понедельник',1,1,'Численные методы',2,'лекция','Северный корпус, ауд.541',2),(2,'Понедельник',2,1,'Численные методы',2,'практика','Северный корпус, ауд.536',2),(4,'Понедельник',3,1,'Системы АКУ',1,'лекция','Северный корпус, ауд.519',2),(5,'Понедельник',4,1,'Организация баз данных и знаний',3,'практика','Северный корпус, ауд.558',2),(7,'Понедельник',1,2,'Численные методы',2,'лекция','Северный корпус, ауд.541',2),(8,'Понедельник',2,2,'Организация баз данных и знаний',3,'практика','Северный корпус, ауд.558',2),(9,'Понедельник',3,2,'Системы АКУ',1,'лекция','Северный корпус, ауд.519',2),(10,'Понедельник',4,2,'Численные методы',2,'практика','Северный корпус, ауд.552',2),(11,'Понедельник',2,3,'Основы теории передачи информации',4,'лекция','Северный корпус, ауд.519',2),(12,'Понедельник',3,3,'Численные методы',2,'практика','Северный корпус, ауд.536',2),(13,'Вторник',1,1,'Системы АКУ',1,'практика','Северный корпус, ауд.535',2);
+insert  into `lesson`(`id_lesson`,`day`,`class_num`,`group`,`class`,`lecturer`,`type`,`classroom`,`subgroup`,`parity`) values (1,'Понедельник',1,1,'Численные методы',2,'лекция','Северный корпус, ауд.541',2,0),(2,'Понедельник',2,1,'Численные методы',2,'практика','Северный корпус, ауд.536',2,0),(4,'Понедельник',3,1,'Системы АКУ',1,'лекция','Северный корпус, ауд.519',2,0),(5,'Понедельник',4,1,'Организация баз данных и знаний',3,'практика','Северный корпус, ауд.558',2,0),(7,'Понедельник',1,2,'Численные методы',2,'лекция','Северный корпус, ауд.541',2,0),(8,'Понедельник',2,2,'Организация баз данных и знаний',3,'практика','Северный корпус, ауд.558',2,0),(9,'Понедельник',3,2,'Системы АКУ',1,'лекция','Северный корпус, ауд.519',2,0),(10,'Понедельник',4,2,'Численные методы',2,'практика','Северный корпус, ауд.552',2,0),(11,'Понедельник',2,3,'Основы теории передачи информации',4,'лекция','Северный корпус, ауд.519',2,0),(12,'Понедельник',3,3,'Численные методы',2,'практика','Северный корпус, ауд.536',2,0),(13,'Вторник',1,1,'Системы АКУ',1,'практика','Северный корпус, ауд.535',2,0),(15,'Понедельник',2,5,'Основы теории передачи информации',4,'лекция','Северный корпус, ауд.318',2,0);
 
 /*Table structure for table `speciality` */
 
@@ -171,7 +173,7 @@ CREATE TABLE `speciality` (
 
 /*Data for the table `speciality` */
 
-insert  into `speciality`(`name_spec`,`faculty`) values ('Компьютерные науки','Факультет компьютерных наук'),('Системная инженерия','Факультет компьютерных наук');
+insert  into `speciality`(`name_spec`,`faculty`) values ('Безпасность информационных систем','Факультет компьютерных наук'),('Компьютерные науки','Факультет компьютерных наук'),('Системная инженерия','Факультет компьютерных наук');
 
 /*Table structure for table `user` */
 
@@ -204,7 +206,9 @@ DROP TABLE IF EXISTS `allclasses`;
  `fio` varchar(60) ,
  `type` varchar(40) ,
  `classroom` varchar(40) ,
- `subgroup` int(11) 
+ `subgroup` int(11) ,
+ `degree` varchar(40) ,
+ `parity` int(11) 
 )*/;
 
 /*Table structure for table `announcements` */
@@ -244,14 +248,14 @@ DROP TABLE IF EXISTS `groupks32classes`;
 /*!50001 DROP TABLE IF EXISTS `allclasses` */;
 /*!50001 DROP VIEW IF EXISTS `allclasses` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `allclasses` AS (select `lesson`.`day` AS `day`,`lesson`.`class_num` AS `num`,`group`.`id_group` AS `id_group`,`lesson`.`class` AS `class`,`lecturer`.`fio` AS `fio`,`lesson`.`type` AS `type`,`lesson`.`classroom` AS `classroom`,`lesson`.`subgroup` AS `subgroup` from (`lecturer` join (`lesson` join `group` on((`lesson`.`group` = `group`.`id_group`))) on((`lecturer`.`id_user` = `lesson`.`lecturer`)))) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `allclasses` AS (select `lesson`.`day` AS `day`,`lesson`.`class_num` AS `num`,`group`.`id_group` AS `id_group`,`lesson`.`class` AS `class`,`lecturer`.`fio` AS `fio`,`lesson`.`type` AS `type`,`lesson`.`classroom` AS `classroom`,`lesson`.`subgroup` AS `subgroup`,`lecturer`.`degree` AS `degree`,`lesson`.`parity` AS `parity` from (`lecturer` join (`lesson` join `group` on((`lesson`.`group` = `group`.`id_group`))) on((`lecturer`.`id_user` = `lesson`.`lecturer`)))) */;
 
 /*View structure for view announcements */
 
 /*!50001 DROP TABLE IF EXISTS `announcements` */;
 /*!50001 DROP VIEW IF EXISTS `announcements` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `announcements` AS (select `announcement`.`date` AS `date`,`lecturer`.`fio` AS `fio`,`announcement`.`class` AS `class`,`announcement`.`ann` AS `ann` from (`announcement` join `lecturer` on((`announcement`.`lecturer` = `lecturer`.`id_user`))) where (`announcement`.`date` = '2017-05-15')) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `announcements` AS (select `announcement`.`date` AS `date`,`lecturer`.`fio` AS `fio`,`announcement`.`class` AS `class`,`announcement`.`ann` AS `ann` from (`announcement` join `lecturer` on((`announcement`.`lecturer` = `lecturer`.`id_user`)))) union (select `advert`.`date` AS `date`,'Деканат' AS `fio`,`advert`.`class` AS `class`,`advert`.`ad` AS `ann` from `advert`) */;
 
 /*View structure for view groupks32classes */
 
