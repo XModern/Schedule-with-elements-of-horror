@@ -39,11 +39,14 @@ foreach ($days as $value1){
       <?
       foreach ($arr as $value)
        {
-        $stmt = $pdo->query('SELECT class,fio, type, classroom, degree, parity  FROM allclasses 
-            WHERE (allclasses.day="'.$value1.'") AND (num='.$j.') AND (id_group='.$value.') GROUP BY day,num,id_group,parity');
+        $stmt = $pdo->query('SELECT id_lesson,class,fio, type, classroom, degree, parity,subgroup  FROM allclasses 
+            WHERE (allclasses.day="'.$value1.'") AND (num='.$j.') AND (id_group='.$value.') ORDER BY parity');
         if ($stmt->rowCount() == 0){ ?>
            <td>
-
+                     <br/>
+                     <br/>
+                     <br/>
+                     <br/>                     
           </td> <?
         }
         while ($row = $stmt->fetch()){
@@ -72,12 +75,17 @@ foreach ($days as $value1){
           $string = $row['fio'];
           $nameshort = preg_replace($pattern,$replacement,$string);
           echo $nameshort;*/
-        if ($row['parity'] == 0 || $row['parity'] == 1){
+        if ($row['parity'] == 0 || $row['parity'] == 2){
         ?>
 
         
-          <?if ($row['parity'] == 0)   {   ?> 
-          <td>
+          <?if ($row['parity'] == 0)   { ?> 
+
+
+          <? echo $row['id_lesson'];
+          ;
+            if ($row['subgroup'] == 0){ ?>
+                    <td>
           <div class = "tableValue" style="width:100%;height:100%">
           <h5><?echo $row['class'];?></h5>
           <p> <?echo  $row['type'];?> </p>
@@ -85,11 +93,90 @@ foreach ($days as $value1){
           <div class = "aud">
           <label> <?echo  $row['classroom'];?> </label>
           </div>
+          </div>             </td>    <?  
+
+          } else if ($row['subgroup'] == 1){
+            $id = $row['id_lesson'];
+            //echo $id." ".$value1." ".$j." ".$value." ";
+            ?> <td> <?
+              $stmt5 = $pdo->query('SELECT id_lesson,class,fio, type, classroom, degree, parity  FROM allclasses 
+            WHERE (allclasses.day="'.$value1.'") AND (num='.$j.') AND (id_group='.$value.') AND (parity = 0) AND (subgroup=2) ORDER BY subgroup ASC');
+              if ($stmt5->rowCount() == 0){ ?>
+              
+           <div class = "tableValue" style="width:100%;height:100%;float:left;top:0;">
+          <h5><?echo $row['class'].'/ -';?></h5>
+          <p> <?echo  $row['type'].'/ -';?> </p>
+          <p> <?echo  $deg.'.'.$surname.$name.'.'.$patr.'.'.'/ -';?> </p>
+          <div class = "aud">
+          <label> <?echo  $row['classroom'].'/ -';?> </label>
           </div>
-        </td>
+         
+                    <?} else if ($stmt5->rowCount() == 1){
+                        while ($row5 = $stmt5->fetch()){ 
+                                        $fio1 = $row5['fio'];
+                                        $i1 = strripos($fio1," ");
+                                        $patr1 = substr($fio1, $i1+1,1);
+                                        $fio1[$i1] = "1";
+                                        $i1 = strripos($fio1," ");
+                                        $name1 = substr($fio1, $i1+1,1);
+                                        $surname1 = substr($fio1, 0,$i1+1);
+                                  if ($row5['degree'] == "доцент"){
+                                    $deg1 = substr($row5['degree'], 0,3);
+
+                                  } else {
+                                    if ($row5['degree'] == "старший преподаватель"){
+                                      $deg1 = substr($row5['degree'], 0,2).".".substr($row5['degree'], 8,4);
+                                    } else { 
+                                      if ($row5['degree'] == "профессор"){
+                                        $deg1 = substr($row5['degree'], 0,4);
+                                      } 
+                                    }
+                                  }                                          
+
+                              ?>
+                              <div class = "tableValue" style="width:100%;height:100%;float:left;top:0;">
+                              <h5><?echo $row['class'].'/'. $row5['class'];?></h5>
+                              <p> <?echo  $row['type'].'/'.$row5['type'];?> </p>
+                              <p> <?echo  $deg.'.'.$surname.$name.'.'.$patr.'.'.'/'.$deg1.'.'.$surname1.$name1.'.'.$patr1.'.';?> </p>
+                              <div class = "aud">
+                              <label> <?echo  $row['classroom'].'/'.$row5['classroom'];?> </label>
+                              </div>
+                        <?
+
+                        }
+
+
+
+              ?> </td>  <?
+
+                    }
+
+
+          } else if($row['subgroup'] == 2) {
+
+           $stmt6 = $pdo->query('SELECT id_lesson,class,fio, type, classroom, degree, parity  FROM allclasses 
+            WHERE (allclasses.day="'.$value1.'") AND (num='.$j.') AND (id_group='.$value.') AND (parity = 0) AND (subgroup=1) ORDER BY subgroup ASC');
+           if ($stmt6->rowCount() == 0){
+                           ?><td>
+                              <div class = "tableValue" style="width:100%;height:100%;float:left;top:0;">
+                              <h5><?echo '-/'.$row['class'];?></h5>
+                              <p> <?echo '-/'.$row['type'];?> </p>
+                              <p> <?echo  '-/'.$deg.'.'.$surname.$name.'.'.$patr.'.';?> </p>
+                              <div class = "aud">
+                              <label> <?echo  '-/'.$row['classroom'];?> </label>
+                              </div> 
+                            </td>
+                              <?
+
+                
+          }
+
+
+          }?>
+
           <? } else
 
-          if ($row['parity'] == 1)   {   ?> 
+          if ($row['parity'] == 2)   {   ?> 
           <td>
           <div class = "tableValue" style="width:100%;height:50%;float:left;top:0;">
           <h5><?echo $row['class'];?></h5>
@@ -102,7 +189,7 @@ foreach ($days as $value1){
           <?
 
           $stmt2 = $pdo->query('SELECT class,fio, type, classroom, degree, parity  FROM allclasses 
-            WHERE (allclasses.day="'.$value1.'") AND (num='.$j.') AND (id_group='.$value.') AND (parity = 2)');
+            WHERE (allclasses.day="'.$value1.'") AND (num='.$j.') AND (id_group='.$value.') AND (parity = 1)');
           if ($stmt2->rowCount() != 0){
               while ($row1 = $stmt2->fetch()){ 
                           $fio = $row1['fio'];
@@ -126,20 +213,17 @@ foreach ($days as $value1){
 
           }  else  if ($stmt2->rowCount() == 0) {
                 ?>
-                      <div class = "tableValue" style="width:100%;float:right;height:50%;border-top:1px solid black;border-bottom:1px solid black;">
-                      <h5><?echo "\n";?></h5>
-                      <p> <?echo  " \n";?> </p>
-                      <p> <?echo  " \n "?> </p>
-                      <div class = "aud" style="background-color:white;">
-                      <label> <?echo  "      ";?> </label>
-                      </div>
+                      <div style="width:100%;float:right;height:50%;border-top:1px solid black;border-bottom:1px solid black;">
+                     <br/>
+                     <br/>
+                     <br/>
                       </div> 
                       </td><?}
         } 
       }
-        else if ($row['parity'] == 2){
+        else if ($row['parity'] == 1){
                  $stmt3 = $pdo->query('SELECT class,fio, type, classroom, degree, parity  FROM allclasses 
-            WHERE (allclasses.day="'.$value1.'") AND (num='.$j.') AND (id_group='.$value.') AND (parity = 1)');
+            WHERE (allclasses.day="'.$value1.'") AND (num='.$j.') AND (id_group='.$value.') AND (parity = 2)');
                  if ($stmt3->rowCount() == 0){
                     
                        $fio = $row['fio'];
@@ -151,16 +235,13 @@ foreach ($days as $value1){
                       $surname = substr($fio, 0,$i+1);?>
 
                       <td> 
-                      <div class = "tableValue" style="width:100%;height:50%;float:right;">
-                      <h5><?echo "";?></h5>
-                      <p> <?echo  "";?> </p>
-                      <p> <?echo  ""?> </p>
-                      <div class = "aud" style="background-color:white;">
-                      <label> <?echo  "";?> </label>
-                      </div>
+                      <div style="width:100%;height:50%;float:right;border-bottom:1px solid black;">
+                     <br/>
+                     <br/>
+                     <br/>
                       </div> 
 
-                      <div class = "tableValue" style="width:100%;height:50%;float:right;border-top:1px solid black;box-shadow:none;">
+                      <div class = "tableValue" style="width:100%;height:50%;float:right;">
                       <h5><?echo $row['class'];?></h5>
                       <p> <?echo  $row['type'];?> </p>
                       <p> <?echo  $deg.'.'.$surname.$name.'.'.$patr.'.'?> </p>

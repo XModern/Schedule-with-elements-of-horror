@@ -9,9 +9,12 @@ table{
 
 
 
-.tableValue{
-	
+.tableValue:hover {
+	background-color:rgba(150,150,150,0.9);
+	color:white;
+
 }
+
 
 .tableValue h5{
 	margin:0 auto;
