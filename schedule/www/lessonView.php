@@ -82,7 +82,7 @@ foreach ($days as $value1){
           <?if ($row['parity'] == 0)   { ?> 
 
 
-          <? echo $row['id_lesson'];
+          <? 
           ;
             if ($row['subgroup'] == 0){ ?>
                     <td>
