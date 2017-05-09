@@ -1,33 +1,74 @@
+<? session_start(); 
+require_once('MyConfig.php');
+//echo "С корабля на бар. Добавить ансеты"." ".$_SESSION['category'];
+if (isset($_SESSION['category'])){
+if ($_SESSION['category'] == "lecturer" || $_SESSION['category'] == "decanat"){
+     
+      $faculty=$_POST['faculty'];
+      $course=$_POST['course'];
+
+  } 
+
+if ($_SESSION['category'] == "student"){
+//echo $_SESSION['group'];
+$stmt11 = $pdo->query('SELECT * FROM schedule.group 
+            WHERE (id_group = '.$_SESSION['group'].')');
+while ($row11 = $stmt11->fetch()){
+    $course=$row11['course'];
+    $faculty=$row11['faculty'];
+    //echo $course." ".$faculty;
+  }
+}
+
+?>
 
 <head>
 <title>schedule</title>
-<meta charset="cp1251">
-<link href="styles.css" rel="stylesheet">
+<meta charset="cp1251"/>
+<link href="styles/styles.css" rel="stylesheet">
 </head>
 
 <body >
+  <div class="footer" action="exit.php">
+   
+    <div class="image">
+        <img src="images/logo11.png" alt="CHECKIT" width=100%/>
+    </div> 
 
-<div style="width:100%;margin:0 auto;">
+    <div class="panel">
+        
+    <form method="POST" action="exit.php">
+    <input type = "submit" name = "reg" value="Выйти" style="float:right;margin-right:1%;"/> 
+    </form>
+    </div>
+    <img src="images/prostr1.jpg" alt="------" width=100% style="margin-top:-1%;"/>
 
-  <?php
-require_once('MyConfig.php');
+        <div class="foot">
+    
+        </div>
+</div>
+
+<div class="content">
+    <h4 style = "width:35%; margin:0 auto; margin-top:1%;"> <? echo    $faculty." ".$course." курс";?> </h4>
+  <?
+
 $days = array("Понедельник","Вторник","Среда","Четверг", "Пятница");
 foreach ($days as $value1){
   $i = 0;
   unset($arr);
   $arr = array();
  ?>
- <table border="2" style = "width:90%;">  
+ <table border="2">  
     <tr>
-      <td rowspan=6 style = "transform:rotate(270deg); border:none;padding:0;margin:0; width:5%; height:5%;"><?echo $value1;?></td>
-      <td style="width:5%;">Номер пары</td>
+      <td rowspan=6 style = "transform:rotate(270deg); border:none;padding:0;margin:0; width:2%; height:2%;"><?echo $value1;?></td>
+      <td style="width:2%;">Номер пары</td>
       <? $stmt = $pdo->query('SELECT group_name,id_group FROM schedule.group 
-            WHERE (group.course=3) AND (group.faculty='.'"Факультет компьютерных наук"'.') ORDER BY group_name ASC');
+            WHERE (group.course='.$course.') AND (group.faculty="'.$faculty.'") ORDER BY group_name ASC');
       while ($row = $stmt->fetch()){
         $i++;
         $arr[$i] = $row['id_group'];
       ?>
-      <td style="width:20%;"><? echo $row['group_name']?></td>
+      <td style="width:10%;"><? echo $row['group_name']?></td>
       <? 
       } 
       ?>
@@ -40,7 +81,7 @@ foreach ($days as $value1){
       foreach ($arr as $value)
        {
         $stmt = $pdo->query('SELECT id_lesson,class,fio, type, classroom, degree, parity,subgroup  FROM allclasses 
-            WHERE (allclasses.day="'.$value1.'") AND (num='.$j.') AND (id_group='.$value.') ORDER BY parity');
+            WHERE (allclasses.day="'.$value1.'") AND (num='.$j.') AND (id_group='.$value.') ORDER BY parity ASC');
         if ($stmt->rowCount() == 0){ ?>
            <td>
                      <br/>
@@ -70,6 +111,8 @@ foreach ($days as $value1){
           $i = strripos($fio," ");
           $name = substr($fio, $i+1,1);
           $surname = substr($fio, 0,$i+1);
+
+
           /*$pattern = '/(\w+) (\w)\w+ (\w)\w+/iu';
           $replacement = '$1 $2. $3.';
           $string = $row['fio'];
@@ -189,7 +232,7 @@ foreach ($days as $value1){
           <?
 
           $stmt2 = $pdo->query('SELECT class,fio, type, classroom, degree, parity  FROM allclasses 
-            WHERE (allclasses.day="'.$value1.'") AND (num='.$j.') AND (id_group='.$value.') AND (parity = 1)');
+            WHERE (allclasses.day="'.$value1.'") AND (num='.$j.') AND (id_group='.$value.') AND (parity = 1) ORDER BY parity ASC');
           if ($stmt2->rowCount() != 0){
               while ($row1 = $stmt2->fetch()){ 
                           $fio = $row1['fio'];
@@ -207,7 +250,7 @@ foreach ($days as $value1){
           <label> <?echo  $row1['classroom'];?> </label>
           </div>
           </div> 
-          </div>
+
           <?
               }
 
@@ -223,7 +266,7 @@ foreach ($days as $value1){
       }
         else if ($row['parity'] == 1){
                  $stmt3 = $pdo->query('SELECT class,fio, type, classroom, degree, parity  FROM allclasses 
-            WHERE (allclasses.day="'.$value1.'") AND (num='.$j.') AND (id_group='.$value.') AND (parity = 2)');
+            WHERE (allclasses.day="'.$value1.'") AND (num='.$j.') AND (id_group='.$value.') AND (parity = 2) ORDER BY parity ASC');
                  if ($stmt3->rowCount() == 0){
                     
                        $fio = $row['fio'];
@@ -280,8 +323,18 @@ foreach ($days as $value1){
      ?> </tr>  <?
    }
    unset($value1);
+
+ 
       ?>
  </table>
 </div>
+ </div>
+
+<div class="sydebar">
+    <label>Место для каленадря (тут уже с событиями)</label>
+
+</div>
 </body>
+
+<? } else {echo "Error";} ?>
 
