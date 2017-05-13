@@ -22,14 +22,14 @@ session_start();?>
 
     <div class="panel">
         
-    <form method="POST" action="exit.php">
-    <input type = "submit" value="Войти" style="float:right;margin-right:1%;"/> 
-	</form>
+    <form method="POST" action="exit.php" style="float:right;margin-right:1%;width:10%;">
+    <input type = "submit" name = "reg" value="Выйти" /> 
+    </form>
     </div>
     <img src="images/prostr1.jpg" alt="------" width=100% style="margin-top:-1%;"/>
 
-        <div class="navig" style = "float:left;"> <a href="index.php"> Главная страница </a> </div>
-        <div class="navig" style = "float:right"> <a href="auth.php"> Управление </a> </div>
+        <div class="navig" style = "float:left;height:10%;"> <a href="index.php"> Главная страница </a> </div>
+        <div class="navig" style = "float:right;height:10%;"> <a href="auth.php"> Управление </a> </div>
 </div>
 
 
@@ -117,7 +117,7 @@ session_start();?>
 		 		<a href = "\assets\php\admin_page.php">Страница администрирования</a><br/>  
 		 		<? } else {
 		 			if ($_SESSION['category'] == "lecturer"){?>
-		 				<a href = "">ГЂГ­Г®Г­Г±Г»</a><br/>  
+		 				<a href = "">Анонсы</a><br/>  
 		 			<?}
 		 		}?>
 		 		</fieldset> <?
@@ -126,6 +126,7 @@ session_start();?>
 		 if($row['user_category'] == "student"){
 		 		 
 		 	 $stmt1 = $pdo->query('SELECT * FROM student WHERE (id_user="'.$row['id_user'].'")');
+		 	 if ($stmt->rowCount() == 0){
 		 	 while ($row1 = $stmt1->fetch()){
 		 	 		
 		 		 $_SESSION['group']=$row1['group'];
@@ -137,12 +138,14 @@ session_start();?>
 		 		 <a href="lessonView.php">Просмотр расписания</a><br/>
 		 		 <?
 		 		} 
-		 	
+		 	} else {
+		 		echo "Вы не подключены к курсу. Обратитесь в деканат.";
+		 	}
 		 }
 		}
 
  	}
-} else {echo  "ГЌГҐГўГҐГ°Г­Г® ГўГўГҐГ¤ГҐГ­Г» Г¤Г Г­Г­Г»ГҐ";}
+} else {echo  "Неверно введены данные.";}
 ?> 
 
 

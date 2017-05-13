@@ -37,14 +37,14 @@ while ($row11 = $stmt11->fetch()){
 
     <div class="panel">
         
-    <form method="POST" action="exit.php">
-    <input type = "submit" name = "reg" value="Выйти" style="float:right;margin-right:1%;"/> 
+    <form method="POST" action="exit.php" style="float:right;margin-right:1%;width:10%;">
+    <input type = "submit" name = "reg" value="Выйти" /> 
     </form>
     </div>
     <img src="images/prostr1.jpg" alt="------" width=100% style="margin-top:-1%;"/>
 
-        <div class="navig" style = "float:left;"> <a href="index.php"> Главная страница </a> </div>
-        <div class="navig" style = "float:right"> <a href="auth.php"> Управление </a> </div>
+        <div class="navig" style = "float:left;height:10%;"> <a href="index.php"> Главная страница </a> </div>
+        <div class="navig" style = "float:right;height:10%;"> <a href="auth.php"> Управление </a> </div>
 </div>
 
 <div class="content">

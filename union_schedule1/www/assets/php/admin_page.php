@@ -3,6 +3,9 @@
 	
 	</head>
 	<body>
+
+
+		
 	<?php
 		require_once("/connector.php");
 
@@ -10,7 +13,7 @@
 		{
 			//echo $_POST['remove_announsment_field'];
 			
-			echo "Поле под номером \"".$_POST['remove_announsment_field']."\" из таблицы \"announcement\" удалено. <br/>";
+			echo "ГЏГ®Г«ГҐ ГЇГ®Г¤ Г­Г®Г¬ГҐГ°Г®Г¬ \"".$_POST['remove_announsment_field']."\" ГЁГ§ ГІГ ГЎГ«ГЁГ¶Г» \"announcement\" ГіГ¤Г Г«ГҐГ­Г®. <br/>";
 			$remove_announsment_request = "Delete from schedule.announcement where id_ann = '".$_POST['remove_announsment_field']."';";
 			$server_connect_pdo->query($remove_announsment_request); 
 			
@@ -20,7 +23,7 @@
 		{
 			//echo $_POST['remove_advert_field'];
 			
-			echo "Поле под номером \"".$_POST['remove_advert_field']."\" из таблицы \"advert\" удалено. <br/>";
+			echo "ГЏГ®Г«ГҐ ГЇГ®Г¤ Г­Г®Г¬ГҐГ°Г®Г¬ \"".$_POST['remove_advert_field']."\" ГЁГ§ ГІГ ГЎГ«ГЁГ¶Г» \"advert\" ГіГ¤Г Г«ГҐГ­Г®. <br/>";
 			$remove_advert_request = "Delete from schedule.advert where id_ad = '".$_POST['remove_advert_field']."';";
 			$server_connect_pdo->query($remove_advert_request);
 			
@@ -30,7 +33,7 @@
 		{
 			//echo $_POST['remove_class_field'];
 			
-			echo "Поле с именем \"".$_POST['remove_class_field']."\" из таблицы \"class\" удалено. <br/>";
+			echo "ГЏГ®Г«ГҐ Г± ГЁГ¬ГҐГ­ГҐГ¬ \"".$_POST['remove_class_field']."\" ГЁГ§ ГІГ ГЎГ«ГЁГ¶Г» \"class\" ГіГ¤Г Г«ГҐГ­Г®. <br/>";
 			$remove_class_request = "Delete from schedule.class where name = '".$_POST['remove_class_field']."';";
 			$server_connect_pdo->query($remove_class_request);
 
@@ -40,7 +43,7 @@
 		{
 			//echo $_POST['remove_department_field'];
 			
-			echo "Поле с именем \"".$_POST['remove_department_field']."\" из таблицы \"department\" удалено. <br/>";
+			echo "ГЏГ®Г«ГҐ Г± ГЁГ¬ГҐГ­ГҐГ¬ \"".$_POST['remove_department_field']."\" ГЁГ§ ГІГ ГЎГ«ГЁГ¶Г» \"department\" ГіГ¤Г Г«ГҐГ­Г®. <br/>";
 			$remove_department_request = "Delete from schedule.department where department = '".$_POST['remove_department_field']."';";
 			$server_connect_pdo->query($remove_department_request);
 
@@ -50,7 +53,7 @@
 		{
 			//echo $_POST['remove_faculty_field'];
 			
-			echo "Поле с именем \"".$_POST['remove_faculty_field']."\" из таблицы \"faculty\" удалено. <br/>";
+			echo "ГЏГ®Г«ГҐ Г± ГЁГ¬ГҐГ­ГҐГ¬ \"".$_POST['remove_faculty_field']."\" ГЁГ§ ГІГ ГЎГ«ГЁГ¶Г» \"faculty\" ГіГ¤Г Г«ГҐГ­Г®. <br/>";
 			$remove_faculty_request = "Delete from schedule.faculty where name = '".$_POST['remove_faculty_field']."';";
 			$server_connect_pdo->query($remove_faculty_request); 
 			
@@ -81,7 +84,7 @@
 		{
 			//echo $_POST['remove_group_field'];
 			
-			echo "Поле под номером \"".$_POST['remove_group_field']."\" из таблицы \"group\" удалено. <br/>";
+			echo "ГЏГ®Г«ГҐ ГЇГ®Г¤ Г­Г®Г¬ГҐГ°Г®Г¬ \"".$_POST['remove_group_field']."\" ГЁГ§ ГІГ ГЎГ«ГЁГ¶Г» \"group\" ГіГ¤Г Г«ГҐГ­Г®. <br/>";
 			$remove_group_request = "Delete from schedule.group where id_group = '".$_POST['remove_group_field']."';";
 			$server_connect_pdo->query($remove_group_request);
 
@@ -91,7 +94,7 @@
 		{
 			//echo $_POST['remove_lecturer_field'];
 			
-			echo "Поле под номером \"".$_POST['remove_lecturer_field']."\" из таблицы \"lecturer\" удалено. <br/>";
+			echo "ГЏГ®Г«ГҐ ГЇГ®Г¤ Г­Г®Г¬ГҐГ°Г®Г¬ \"".$_POST['remove_lecturer_field']."\" ГЁГ§ ГІГ ГЎГ«ГЁГ¶Г» \"lecturer\" ГіГ¤Г Г«ГҐГ­Г®. <br/>";
 			$remove_lecturer_request = "Delete from schedule.lecturer where id_user = '".$_POST['remove_lecturer_field']."';";
 			$server_connect_pdo->query($remove_lecturer_request);
 
@@ -101,7 +104,7 @@
 		{
 			//echo $_POST['remove_lesson_field'];
 			
-			echo "Поле под номером \"".$_POST['remove_lesson_field']."\" из таблицы \"lesson\" удалено. <br/>";
+			echo "ГЏГ®Г«ГҐ ГЇГ®Г¤ Г­Г®Г¬ГҐГ°Г®Г¬ \"".$_POST['remove_lesson_field']."\" ГЁГ§ ГІГ ГЎГ«ГЁГ¶Г» \"lesson\" ГіГ¤Г Г«ГҐГ­Г®. <br/>";
 			$remove_lesson_request = "Delete from schedule.lesson where id_lesson = '".$_POST['remove_lesson_field']."';";
 			$server_connect_pdo->query($remove_lesson_request);
 			
@@ -111,7 +114,7 @@
 		{
 			//echo $_POST['remove_speciality_field'];
 			
-			echo "Поле с именем \"".$_POST['remove_speciality_field']."\" из таблицы \"speciality\" удалено. <br/>";
+			echo "ГЏГ®Г«ГҐ Г± ГЁГ¬ГҐГ­ГҐГ¬ \"".$_POST['remove_speciality_field']."\" ГЁГ§ ГІГ ГЎГ«ГЁГ¶Г» \"speciality\" ГіГ¤Г Г«ГҐГ­Г®. <br/>";
 			$remove_speciality_request = "Delete from schedule.speciality where name_spec = '".$_POST['remove_speciality_field']."';";
 			$server_connect_pdo->query($remove_speciality_request);
 			
@@ -121,7 +124,7 @@
 		{
 			//echo $_POST['remove_user_field'];
 			
-			echo "Поле с именем \"".$_POST['remove_user_field']."\" из таблицы \"user\" удалено. <br/>";
+			echo "ГЏГ®Г«ГҐ Г± ГЁГ¬ГҐГ­ГҐГ¬ \"".$_POST['remove_user_field']."\" ГЁГ§ ГІГ ГЎГ«ГЁГ¶Г» \"user\" ГіГ¤Г Г«ГҐГ­Г®. <br/>";
 			$remove_user_request = "Delete from schedule.user where id_user = '".$_POST['remove_user_field']."';";
 			$server_connect_pdo->query($remove_user_request);
 			
@@ -133,7 +136,7 @@
 			//echo $_POST['new_record_date'].", ".$_POST['new_record_lector'].", ".$_POST['new_record_announcement'].", ".$_POST['new_record_subject'];
 			$add_new_announcement_request = "Insert into schedule.announcement Values(null, '".$_POST['new_announsment_record_date']."', ".$_POST['new_announsment_record_lector'].", '".$_POST['new_announsment_record_announcement']."', '".$_POST['new_announsment_record_subject']."', '".$_POST['choosen_faculty']."');";
 			$add_new_announcement = $server_connect_pdo->query($add_new_announcement_request);
-			echo "Новая запись успешно добавлена.<br/>";
+			echo "ГЌГ®ГўГ Гї Г§Г ГЇГЁГ±Гј ГіГ±ГЇГҐГёГ­Г® Г¤Г®ГЎГ ГўГ«ГҐГ­Г .<br/>";
 			
 			unset($_POST['add_new_announcement_button']);
 		}
@@ -141,7 +144,7 @@
 		{
 			$add_new_advert_request = "Insert into schedule.advert Values(null, '".$_POST['new_advert_record_date']."', '".$_POST['new_advert_record_advert']."', '".$_POST['new_advert_record_subject']."', '".$_POST['choosen_faculty']."');";
 			$add_new_advert = $server_connect_pdo->query($add_new_advert_request);
-			echo "Новая запись успешно добавлена.<br/>";
+			echo "ГЌГ®ГўГ Гї Г§Г ГЇГЁГ±Гј ГіГ±ГЇГҐГёГ­Г® Г¤Г®ГЎГ ГўГ«ГҐГ­Г .<br/>";
 			
 			unset($_POST['add_new_advert_button']);
 		}
@@ -149,7 +152,7 @@
 		{
 			$add_new_class_request = "Insert into schedule.class Values('".$_POST['new_class_record_name']."', '".$_POST['choosen_faculty']."');";
 			$add_new_class = $server_connect_pdo->query($add_new_class_request);
-			echo "Новая запись успешно добавлена.<br/>";
+			echo "ГЌГ®ГўГ Гї Г§Г ГЇГЁГ±Гј ГіГ±ГЇГҐГёГ­Г® Г¤Г®ГЎГ ГўГ«ГҐГ­Г .<br/>";
 			
 			unset($_POST['add_new_class_button']);
 		}
@@ -157,7 +160,7 @@
 		{
 			$add_new_department_request = "Insert into schedule.department Values('".$_POST['new_department_record_name']."', '".$_POST['choosen_faculty']."');";
 			$add_new_department = $server_connect_pdo->query($add_new_department_request);
-			echo "Новая запись успешно добавлена.<br/>";
+			echo "ГЌГ®ГўГ Гї Г§Г ГЇГЁГ±Гј ГіГ±ГЇГҐГёГ­Г® Г¤Г®ГЎГ ГўГ«ГҐГ­Г .<br/>";
 			
 			unset($_POST['add_new_department_button']);
 		}
@@ -165,7 +168,7 @@
 		{
 			$add_new_faculty_request = "Insert into schedule.faculty Values('".$_POST['new_faculty_record_name']."');";
 			$add_new_faculty = $server_connect_pdo->query($add_new_faculty_request);
-			echo "Новая запись успешно добавлена.<br/>";
+			echo "ГЌГ®ГўГ Гї Г§Г ГЇГЁГ±Гј ГіГ±ГЇГҐГёГ­Г® Г¤Г®ГЎГ ГўГ«ГҐГ­Г .<br/>";
 			
 			unset($_POST['add_new_faculty_button']);
 		}
@@ -175,7 +178,7 @@
 			
 			$add_new_group_request = "Insert into schedule.group Values(null, '".$_POST['choosen_faculty']."', '".$_POST['new_group_record_speciality']."', ".$_POST['new_group_record_course'].", '".$_POST['new_group_record_name']."');";
 			$add_new_group = $server_connect_pdo->query($add_new_group_request);
-			echo "Новая запись успешно добавлена.<br/>";
+			echo "ГЌГ®ГўГ Гї Г§Г ГЇГЁГ±Гј ГіГ±ГЇГҐГёГ­Г® Г¤Г®ГЎГ ГўГ«ГҐГ­Г .<br/>";
 			
 			unset($_POST['add_new_group_button']);
 		}
@@ -183,7 +186,7 @@
 		{
 			$add_new_speciality_request = "Insert into schedule.speciality Values('".$_POST['new_speciality_record_name']."', '".$_POST['choosen_faculty']."');";
 			$add_new_speciality = $server_connect_pdo->query($add_new_speciality_request);
-			echo "Новая запись успешно добавлена.<br/>";
+			echo "ГЌГ®ГўГ Гї Г§Г ГЇГЁГ±Гј ГіГ±ГЇГҐГёГ­Г® Г¤Г®ГЎГ ГўГ«ГҐГ­Г .<br/>";
 			
 			unset($_POST['add_new_speciality_button']);
 		}
@@ -193,7 +196,7 @@
 			
 			$add_new_lecturer_request = "Insert into schedule.lecturer Values('".$_POST['new_lecturer_record_name']."', null, '".$_POST['new_lecturer_record_degree']."', '".$_POST['new_lecturer_record_department']."');";
 			$add_new_lecturer = $server_connect_pdo->query($add_new_lecturer_request);
-			echo "Новая запись успешно добавлена.<br/>";
+			echo "ГЌГ®ГўГ Гї Г§Г ГЇГЁГ±Гј ГіГ±ГЇГҐГёГ­Г® Г¤Г®ГЎГ ГўГ«ГҐГ­Г .<br/>";
 			
 			unset($_POST['add_new_lecturer_button']);
 		}
@@ -201,7 +204,7 @@
 		{
 			$add_new_user_request = "Insert into schedule.user Values(null, '".$_POST['new_user_record_login']."', '".$_POST['new_user_record_password']."', '".$_POST['new_user_record_category']."');";
 			$add_new_user = $server_connect_pdo->query($add_new_user_request);
-			echo "Новая запись успешно добавлена.<br/>";
+			echo "ГЌГ®ГўГ Гї Г§Г ГЇГЁГ±Гј ГіГ±ГЇГҐГёГ­Г® Г¤Г®ГЎГ ГўГ«ГҐГ­Г .<br/>";
 			
 			unset($_POST['add_new_user_button']);
 		}
@@ -211,7 +214,7 @@
 			
 			$add_new_lesson_request = "Insert into schedule.lesson Values(null, '".$_POST['new_lesson_record_day']."', ".$_POST['new_lesson_record_pair_num'].", ".$_POST['new_lesson_record_group'].", '".$_POST['new_lesson_record_subject']."', ".$_POST['new_lesson_record_lector'].", '".$_POST['new_lesson_record_type']."', '".$_POST['new_lesson_record_classroom']."', ".$_POST['new_lesson_record_group_amount'].", ".$_POST['new_lesson_record_parity'].");";
 			$add_new_lesson = $server_connect_pdo->query($add_new_lesson_request);
-			echo "Новая запись успешно добавлена.<br/>";
+			echo "ГЌГ®ГўГ Гї Г§Г ГЇГЁГ±Гј ГіГ±ГЇГҐГёГ­Г® Г¤Г®ГЎГ ГўГ«ГҐГ­Г .<br/>";
 			unset($_POST['add_new_lesson_button']);
 		}
 	?>
@@ -226,11 +229,11 @@
 				<div class = "table_content_list">
 					<table border = '1'>
 						<tr>
-							<td align = "center">Ид</td>
-							<td align = "center">Логин</td>
-							<td align = "center">Пароль</td>
-							<td align = "center">Категория пользователя</td>
-							<td align = 'center'>Функции</td>
+							<td align = "center">Г€Г¤</td>
+							<td align = "center">Г‹Г®ГЈГЁГ­</td>
+							<td align = "center">ГЏГ Г°Г®Г«Гј</td>
+							<td align = "center">ГЉГ ГІГҐГЈГ®Г°ГЁГї ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«Гї</td>
+							<td align = 'center'>Г”ГіГ­ГЄГ¶ГЁГЁ</td>
 						</tr>
 		<?php
 						while($row = $db_info_getter->fetch(PDO::FETCH_ASSOC))
@@ -252,7 +255,7 @@
 								<td>
 									<form name = "user_admin_remove_post" action = "" method = "POST">
 										<input type = "hidden" name = "remove_user_field" value = "<?= $row['id_user']?>"></input>
-										<input type = "submit" name = "remove_user_button" value = "Удалить"/>
+										<input type = "submit" name = "remove_user_button" value = "Г“Г¤Г Г«ГЁГІГј"/>
 									</form>
 								</td>
 							</tr>
@@ -263,27 +266,27 @@
 				</div>
 				<br/>
 				<div class = "add_new_user_place" style = "border: ridge 1px black;">
-					<label>Добавление новой записи:</label>
+					<label>Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ Г­Г®ГўГ®Г© Г§Г ГЇГЁГ±ГЁ:</label>
 					<br/>
 					<form name = "add_new_user_form" action = "" method = "POST">
 						<div class = "new_user_login_field">
-							<label class = "new_user_login_label">Логин:</label>
+							<label class = "new_user_login_label">Г‹Г®ГЈГЁГ­:</label>
 							<input type = "text" name = "new_user_record_login" value = ""/>
 						</div>
 						<div class = "new_user_password_field">
-							<label class = "new_user_password_label">Пароль:</label>
+							<label class = "new_user_password_label">ГЏГ Г°Г®Г«Гј:</label>
 							<input type = "text" name = "new_user_record_password" value = ""/>
 						</div>
 						<div class = "new_user_category_field">
-							<label class = "new_user_category_label">Введите категорию пользователя:</label>
+							<label class = "new_user_category_label">Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ ГІГҐГЈГ®Г°ГЁГѕ ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«Гї:</label>
 							<select name = "new_user_record_category">
-								<option value = "student">студент</option>
-								<option value = "lecturer">преподаватель</option>
-								<option value = "admin">админ</option>
+								<option value = "student">Г±ГІГіГ¤ГҐГ­ГІ</option>
+								<option value = "lecturer">ГЇГ°ГҐГЇГ®Г¤Г ГўГ ГІГҐГ«Гј</option>
+								<option value = "admin">Г Г¤Г¬ГЁГ­</option>
 							</select>
 						</div>
 						<br/>
-						<input type = "submit" name = "add_new_user_button" value = "Добавить"/>
+						<input type = "submit" name = "add_new_user_button" value = "Г„Г®ГЎГ ГўГЁГІГј"/>
 					</form>
 				</div>
 			</form>
@@ -301,11 +304,11 @@
 				<div class = "table_content_list">
 					<table border = '1'>
 						<tr>
-							<td align = 'center'>Ид</td>
-							<td align = 'center'>ФИО</td>
-							<td align = 'center'>Уч. степень</td>
-							<td align = 'center'>Кафедра</td>
-							<td align = 'center'>Функции</td>
+							<td align = 'center'>Г€Г¤</td>
+							<td align = 'center'>Г”Г€ГЋ</td>
+							<td align = 'center'>Г“Г·. Г±ГІГҐГЇГҐГ­Гј</td>
+							<td align = 'center'>ГЉГ ГґГҐГ¤Г°Г </td>
+							<td align = 'center'>Г”ГіГ­ГЄГ¶ГЁГЁ</td>
 						</tr>
 			<?php
 						while($row = $db_info_getter->fetch(PDO::FETCH_ASSOC))
@@ -327,7 +330,7 @@
 								<td>
 									<form name = "lecturer_admin_remove_post" action = "" method = "POST">
 										<input type = "hidden" name = "remove_lecturer_field" value = "<?= $row['id_user']?>"></input>
-										<input type = "submit" name = "remove_lecturer_button" value = "Удалить"/>
+										<input type = "submit" name = "remove_lecturer_button" value = "Г“Г¤Г Г«ГЁГІГј"/>
 									</form>
 								</td>
 							</tr>
@@ -338,21 +341,21 @@
 				</div>
 				<br/>
 				<div class = "add_new_lecturer_place" style = "border: ridge 1px black;">
-					<label>Добавление новой записи:</label>
+					<label>Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ Г­Г®ГўГ®Г© Г§Г ГЇГЁГ±ГЁ:</label>
 					<br/>
 					<?php //<form name = "add_new_lecturer_form" action = "" method = "POST"> ?>
 					<div class = "new_lecturer_name_field">
-						<label class = "new_lecturer_name_label">ФИО:</label>
+						<label class = "new_lecturer_name_label">Г”Г€ГЋ:</label>
 						<br/>
 						<input type = "text" name = "new_lecturer_record_name" value = ""></input>
 					</div>
 					<div class = "new_lecturer_degree_field">
-						<label class = "new_lecturer_degree_label">Ученая степень:</label>
+						<label class = "new_lecturer_degree_label">Г“Г·ГҐГ­Г Гї Г±ГІГҐГЇГҐГ­Гј:</label>
 						<br/>
 						<input type = "text" name = "new_lecturer_record_degree" value = ""></input>
 					</div>
 					<div class = "new_lecturer_department_field">
-						<label class = "new_lecturer_department_label">Введите кафедру:</label>
+						<label class = "new_lecturer_department_label">Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ ГґГҐГ¤Г°Гі:</label>
 						<select name = "new_lecturer_record_department">
 							<?php
 							$get_all_lecturer_department_request = "Select department from schedule.department where faculty = '".$_POST['choosen_faculty']."';";
@@ -367,7 +370,7 @@
 						</select>
 					</div>
 					<br/>
-					<input type = "submit" name = "add_new_lecturer_button" value = "Добавить"/>
+					<input type = "submit" name = "add_new_lecturer_button" value = "Г„Г®ГЎГ ГўГЁГІГј"/>
 					<?php //</form>?>
 				</div>
 			</form>
@@ -385,8 +388,8 @@
 				<div class = "table_content_list">
 					<table border = '1'>
 						<tr>
-							<td align = 'center'>Имя</td>
-							<td align = 'center'>Функции</td>
+							<td align = 'center'>Г€Г¬Гї</td>
+							<td align = 'center'>Г”ГіГ­ГЄГ¶ГЁГЁ</td>
 						</tr>
 			<?php
 						while($row = $db_info_getter->fetch(PDO::FETCH_ASSOC))
@@ -399,7 +402,7 @@
 								<td>
 									<form name = "faculty_admin_remove_post" action = "" method = "POST">
 										<input type = "hidden" name = "remove_faculty_field" value = "<?= $row['name']?>"></input>
-										<input type = "submit" name = "remove_faculty_button" value = "Удалить"/>
+										<input type = "submit" name = "remove_faculty_button" value = "Г“Г¤Г Г«ГЁГІГј"/>
 									</form>
 								</td>
 							</tr>
@@ -410,15 +413,15 @@
 				</div>
 				<br/>
 				<div class = "add_new_faculty_place" style = "border: ridge 1px black;">
-					<label>Добавление новой записи:</label>
+					<label>Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ Г­Г®ГўГ®Г© Г§Г ГЇГЁГ±ГЁ:</label>
 					<br/>
 					<form name = "add_new_faculty_form" action = "" method = "POST">
 						<div class = "new_faculty_name_field">
-							<label class = "new_faculty_name_label">Название:</label>
+							<label class = "new_faculty_name_label">ГЌГ Г§ГўГ Г­ГЁГҐ:</label>
 							<input type = "text" name = "new_faculty_record_name" value = ""/>
 						</div>
 						<br/>
-						<input type = "submit" name = "add_new_faculty_button" value = "Добавить"/>
+						<input type = "submit" name = "add_new_faculty_button" value = "Г„Г®ГЎГ ГўГЁГІГј"/>
 					</form>
 				</div>					
 				<?php
@@ -435,10 +438,10 @@
 		<?//faculty_add_form END?>
 		<br/>
 		<div id = "admin_panel" style = "border: ridge 5px black;">
-			<label>Вы сейчас работаете с факультетом: <?php echo $_POST['choosen_faculty'];?></label>
+			<label>Г‚Г» Г±ГҐГ©Г·Г Г± Г°Г ГЎГ®ГІГ ГҐГІГҐ Г± ГґГ ГЄГіГ«ГјГІГҐГІГ®Г¬: <?php echo $_POST['choosen_faculty'];?></label>
 			<form name = "faculty_change_form" action = "" method = "POST">
 				<div class = "faculty_choose_field">
-					<label>Выберите факультет для работы: </label>
+					<label>Г‚Г»ГЎГҐГ°ГЁГІГҐ ГґГ ГЄГіГ«ГјГІГҐГІ Г¤Г«Гї Г°Г ГЎГ®ГІГ»: </label>
 					<select name = "choosen_faculty">
 		<?php
 						if(isset($_POST['choosen_faculty']))
@@ -464,7 +467,7 @@
 		?>
 					</select>
 				</div>
-				<input type = "submit" name = "faculty_choose_button" value = "Войти в режим редактирования"/>
+				<input type = "submit" name = "faculty_choose_button" value = "Г‚Г®Г©ГІГЁ Гў Г°ГҐГ¦ГЁГ¬ Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ Г­ГЁГї"/>
 			</form>
 
 		<br/>
@@ -500,12 +503,12 @@
 						<div class = "table_content_list">
 							<table border = '1'>
 								<tr>
-									<td align = 'center'>Ид</td>
-									<td align = 'center'>Дата</td>
-									<td align = 'center'>Лектор</td>
-									<td align = 'center'>Объявление</td>
-									<td align = 'center'>Предмет</td>
-									<td align = 'center'>Функции</td>
+									<td align = 'center'>Г€Г¤</td>
+									<td align = 'center'>Г„Г ГІГ </td>
+									<td align = 'center'>Г‹ГҐГЄГІГ®Г°</td>
+									<td align = 'center'>ГЋГЎГєГїГўГ«ГҐГ­ГЁГҐ</td>
+									<td align = 'center'>ГЏГ°ГҐГ¤Г¬ГҐГІ</td>
+									<td align = 'center'>Г”ГіГ­ГЄГ¶ГЁГЁ</td>
 								</tr>
 		<?php
 								while($row = $db_info_getter->fetch(PDO::FETCH_ASSOC))
@@ -538,7 +541,7 @@
 											<form name = "announsment_admin_remove_post" action = "" method = "POST">
 												<input type = "hidden" name = "choosen_faculty" value = "<?= $_POST['choosen_faculty']?>"/>
 												<input type = "hidden" name = "remove_announsment_field" value = "<?= $row['id_ann']?>"></input>
-												<input type = "submit" name = "remove_announsment_button" value = "Удалить"/>
+												<input type = "submit" name = "remove_announsment_button" value = "Г“Г¤Г Г«ГЁГІГј"/>
 											</form>
 										</td>
 									</tr>
@@ -549,7 +552,7 @@
 						</div>
 						<br/>
 						<div class = "add_new_announsment_place" style = "border: ridge 1px black;">
-							<label>Добавление новой записи:</label>
+							<label>Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ Г­Г®ГўГ®Г© Г§Г ГЇГЁГ±ГЁ:</label>
 							<br/>
 							
 							<?php
@@ -559,11 +562,11 @@
 							?>
 							
 								<div class = "new_announsment_date_field">
-									<label class = "new_announsment_date_label">Дата:</label>
+									<label class = "new_announsment_date_label">Г„Г ГІГ :</label>
 									<input type = "date" name = "new_announsment_record_date" value = ""/>
 								</div>
 								<div class = "new_announsment_lector_field">
-									<label class = "new_announsment_lector_label">Лектор:</label>
+									<label class = "new_announsment_lector_label">Г‹ГҐГЄГІГ®Г°:</label>
 									<select name = "new_announsment_record_lector">
 										<?php
 											$get_lecturer_list_request = "Select id_user, fio from schedule.lecturer;";
@@ -578,12 +581,12 @@
 									</select>
 								</div>
 								<div class = "new_announsment_announcement_field">
-									<label class = "new_announsment_announcement_label">Объявление:</label>
+									<label class = "new_announsment_announcement_label">ГЋГЎГєГїГўГ«ГҐГ­ГЁГҐ:</label>
 									<br/>
 									<textarea name = "new_announsment_record_announcement" cols = "40" rows = "3" style = "resize: none;"></textarea>
 								</div>
 								<div class = "new_announsment_subject_field">
-									<label class = "new_announsment_subject_label">Предмет:</label>
+									<label class = "new_announsment_subject_label">ГЏГ°ГҐГ¤Г¬ГҐГІ:</label>
 									<select name = "new_announsment_record_subject">
 										<?php
 											$get_subject_list_request = "Select name from schedule.class where faculty = '".$_POST['choosen_faculty']."';";
@@ -598,7 +601,7 @@
 									</select>
 								</div>
 								<br/>
-								<input type = "submit" name = "add_new_announcement_button" value = "Добавить"/>
+								<input type = "submit" name = "add_new_announcement_button" value = "Г„Г®ГЎГ ГўГЁГІГј"/>
 							<?php //</form>?>
 						</div>
 		<?php
@@ -611,11 +614,11 @@
 						<div class = "table_content_list">
 							<table border = '1'>
 								<tr>
-									<td align = 'center'>Ид</td>
-									<td align = 'center'>Дата</td>
-									<td align = 'center'>Анонс</td>
-									<td align = 'center'>Предмет</td>
-									<td align = 'center'>Функции</td>
+									<td align = 'center'>Г€Г¤</td>
+									<td align = 'center'>Г„Г ГІГ </td>
+									<td align = 'center'>ГЂГ­Г®Г­Г±</td>
+									<td align = 'center'>ГЏГ°ГҐГ¤Г¬ГҐГІ</td>
+									<td align = 'center'>Г”ГіГ­ГЄГ¶ГЁГЁ</td>
 								</tr>
 		<?php
 								while($row = $db_info_getter->fetch(PDO::FETCH_ASSOC))
@@ -638,7 +641,7 @@
 											<form name = "advert_admin_remove_post" action = "" method = "POST">
 												<input type = "hidden" name = "choosen_faculty" value = "<?= $_POST['choosen_faculty']?>"/>
 												<input type = "hidden" name = "remove_advert_field" value = "<?= $row['id_ad']?>"></input>
-												<input type = "submit" name = "remove_advert_button" value = "Удалить"/>
+												<input type = "submit" name = "remove_advert_button" value = "Г“Г¤Г Г«ГЁГІГј"/>
 											</form>
 										</td>
 									</tr>
@@ -649,20 +652,20 @@
 						</div>
 						<br/>
 						<div class = "add_new_advert_place" style = "border: ridge 1px black;">
-							<label>Добавление новой записи:</label>
+							<label>Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ Г­Г®ГўГ®Г© Г§Г ГЇГЁГ±ГЁ:</label>
 							<br/>
 							<?php //<form name = "add_new_advert_form" action = "" method = "POST"> ?>
 								<div class = "new_advert_date_field">
-									<label class = "new_advert_date_label">Дата:</label>
+									<label class = "new_advert_date_label">Г„Г ГІГ :</label>
 									<input type = "date" name = "new_advert_record_date" value = ""/>
 								</div>
 								<div class = "new_advert_advert_field">
-									<label class = "new_advert_advert_label">Анонс:</label>
+									<label class = "new_advert_advert_label">ГЂГ­Г®Г­Г±:</label>
 									<br/>
 									<textarea name = "new_advert_record_advert" cols = "40" rows = "3" style = "resize: none;"></textarea>
 								</div>
 								<div class = "new_advert_subject_field">
-									<label class = "new_advert_subject_label">Предмет:</label>
+									<label class = "new_advert_subject_label">ГЏГ°ГҐГ¤Г¬ГҐГІ:</label>
 									<select name = "new_advert_record_subject">
 										<?php
 											$get_subject_list_request = "Select name from schedule.class where faculty = '".$_POST['choosen_faculty']."';";
@@ -677,7 +680,7 @@
 									</select>
 								</div>
 								<br/>
-								<input type = "submit" name = "add_new_advert_button" value = "Добавить"/>
+								<input type = "submit" name = "add_new_advert_button" value = "Г„Г®ГЎГ ГўГЁГІГј"/>
 							<?php //</form>?>
 						</div>
 		<?php
@@ -690,8 +693,8 @@
 						<div class = "table_content_list">
 							<table border = '1'>
 								<tr>
-									<td align = 'center'>Название</td>
-									<td align = 'center'>Функции</td>
+									<td align = 'center'>ГЌГ Г§ГўГ Г­ГЁГҐ</td>
+									<td align = 'center'>Г”ГіГ­ГЄГ¶ГЁГЁ</td>
 								</tr>
 		<?php
 								while($row = $db_info_getter->fetch(PDO::FETCH_ASSOC))
@@ -705,7 +708,7 @@
 										<form name = "class_admin_remove_post" action = "" method = "POST">
 											<input type = "hidden" name = "choosen_faculty" value = "<?= $_POST['choosen_faculty']?>"/>
 											<input type = "hidden" name = "remove_class_field" value = "<?= $row['name']?>"></input>
-											<input type = "submit" name = "remove_class_button" value = "Удалить"/>
+											<input type = "submit" name = "remove_class_button" value = "Г“Г¤Г Г«ГЁГІГј"/>
 										</form>
 									</td>
 								</tr>
@@ -716,15 +719,15 @@
 						</div>
 						<br/>
 						<div class = "add_new_class_place" style = "border: ridge 1px black;">
-							<label>Добавление новой записи:</label>
+							<label>Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ Г­Г®ГўГ®Г© Г§Г ГЇГЁГ±ГЁ:</label>
 							<br/>
 							<?php //<form name = "add_new_class_form" action = "" method = "POST"> ?>
 								<div class = "new_class_name_field">
-									<label class = "new_class_name_label">Название:</label>
+									<label class = "new_class_name_label">ГЌГ Г§ГўГ Г­ГЁГҐ:</label>
 									<input type = "text" name = "new_class_record_name" value = ""/>
 								</div>
 								<br/>
-								<input type = "submit" name = "add_new_class_button" value = "Добавить"/>
+								<input type = "submit" name = "add_new_class_button" value = "Г„Г®ГЎГ ГўГЁГІГј"/>
 							<?php //</form>?>
 						</div>
 		<?php
@@ -737,8 +740,8 @@
 						<div class = "table_content_list">
 							<table border = '1'>
 								<tr>
-									<td align = 'center'>Название</td>
-									<td align = 'center'>Функции</td>
+									<td align = 'center'>ГЌГ Г§ГўГ Г­ГЁГҐ</td>
+									<td align = 'center'>Г”ГіГ­ГЄГ¶ГЁГЁ</td>
 								</tr>
 		<?php
 								while($row = $db_info_getter->fetch(PDO::FETCH_ASSOC))
@@ -752,7 +755,7 @@
 										<form name = "department_admin_remove_post" action = "" method = "POST">
 											<input type = "hidden" name = "choosen_faculty" value = "<?= $_POST['choosen_faculty']?>"/>
 											<input type = "hidden" name = "remove_department_field" value = "<?= $row['department']?>"></input>
-											<input type = "submit" name = "remove_department_button" value = "Удалить"/>
+											<input type = "submit" name = "remove_department_button" value = "Г“Г¤Г Г«ГЁГІГј"/>
 										</form>
 									</td>
 								</tr>
@@ -763,16 +766,16 @@
 						</div>
 						<br/>
 						<div class = "add_new_department_place" style = "border: ridge 1px black;">
-							<label>Добавление новой записи:</label>
+							<label>Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ Г­Г®ГўГ®Г© Г§Г ГЇГЁГ±ГЁ:</label>
 							<br/>
 							<?php //<form name = "add_new_department_form" action = "" method = "POST"> 					
 							?>
 								<div class = "new_department_name_field">
-									<label class = "new_department_name_label">Название:</label>
+									<label class = "new_department_name_label">ГЌГ Г§ГўГ Г­ГЁГҐ:</label>
 									<input type = "text" name = "new_department_record_name" value = ""/>
 								</div>
 								<br/>
-								<input type = "submit" name = "add_new_department_button" value = "Добавить"/>
+								<input type = "submit" name = "add_new_department_button" value = "Г„Г®ГЎГ ГўГЁГІГј"/>
 							<?php //</form>?>
 						</div>
 		<?php	
@@ -785,12 +788,12 @@
 						<div class = "table_content_list">
 							<table border = '1'>
 								<tr>
-									<td align = 'center'>Ид</td>
-									<td align = 'center'>Факультет</td>
-									<td align = 'center'>Специальность</td>
-									<td align = 'center'>Курс</td>
-									<td align = 'center'>Имя группы</td>
-									<td align = 'center'>Функции</td>
+									<td align = 'center'>Г€Г¤</td>
+									<td align = 'center'>Г”Г ГЄГіГ«ГјГІГҐГІ</td>
+									<td align = 'center'>Г‘ГЇГҐГ¶ГЁГ Г«ГјГ­Г®Г±ГІГј</td>
+									<td align = 'center'>ГЉГіГ°Г±</td>
+									<td align = 'center'>Г€Г¬Гї ГЈГ°ГіГЇГЇГ»</td>
+									<td align = 'center'>Г”ГіГ­ГЄГ¶ГЁГЁ</td>
 								</tr>
 		<?php
 								while($row = $db_info_getter->fetch(PDO::FETCH_ASSOC))
@@ -816,7 +819,7 @@
 											<form name = "group_admin_remove_post" action = "" method = "POST">
 												<input type = "hidden" name = "choosen_faculty" value = "<?= $_POST['choosen_faculty']?>"/>
 												<input type = "hidden" name = "remove_group_field" value = "<?= $row['id_group']?>"></input>
-												<input type = "submit" name = "remove_group_button" value = "Удалить"/>
+												<input type = "submit" name = "remove_group_button" value = "Г“Г¤Г Г«ГЁГІГј"/>
 											</form>
 										</td>
 									</tr>
@@ -827,11 +830,11 @@
 						</div>
 						<br/>
 						<div class = "add_new_faculty_place" style = "border: ridge 1px black;">
-							<label>Добавление новой записи:</label>
+							<label>Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ Г­Г®ГўГ®Г© Г§Г ГЇГЁГ±ГЁ:</label>
 							<br/>
 							<?php //<form name = "add_new_faculty_form" action = "" method = "POST"> ?>
 								<div name = "new_group_speciality_name_field">
-									<label>Специальность: </label>
+									<label>Г‘ГЇГҐГ¶ГЁГ Г«ГјГ­Г®Г±ГІГј: </label>
 									<select name = "new_group_record_speciality">
 										<?php
 										$get_all_speciality_names_request = "Select name_spec from schedule.speciality where faculty = '".$_POST['choosen_faculty']."';";
@@ -846,7 +849,7 @@
 									</select>
 								</div>
 								<div name = "new_group_course_name_field">
-									<label>Курс: </label>
+									<label>ГЉГіГ°Г±: </label>
 									<select name = "new_group_record_course">
 		<?php
 										for($i = 1; $i < 11; $i++)
@@ -859,11 +862,11 @@
 									</select>
 								</div>
 								<div name = "new_group_name_field">
-									<label>Имя группы: </label>
+									<label>Г€Г¬Гї ГЈГ°ГіГЇГЇГ»: </label>
 									<input type = "text" name = "new_group_record_name"></input>
 								</div>
 								<br/>
-								<input type = "submit" name = "add_new_group_button" value = "Добавить"/>
+								<input type = "submit" name = "add_new_group_button" value = "Г„Г®ГЎГ ГўГЁГІГј"/>
 							<?php //</form>?>	
 						</div>
 		<?php
@@ -876,11 +879,11 @@
 						<div class = "table_content_list">
 							<table border = '1'>
 								<tr>
-									<td align = 'center'>Ид</td>
-									<td align = 'center'>ФИО</td>
-									<td align = 'center'>Уч. степень</td>
-									<td align = 'center'>Кафедра</td>
-									<td align = 'center'>Функции</td>
+									<td align = 'center'>Г€Г¤</td>
+									<td align = 'center'>Г”Г€ГЋ</td>
+									<td align = 'center'>Г“Г·. Г±ГІГҐГЇГҐГ­Гј</td>
+									<td align = 'center'>ГЉГ ГґГҐГ¤Г°Г </td>
+									<td align = 'center'>Г”ГіГ­ГЄГ¶ГЁГЁ</td>
 								</tr>
 		<?php
 								while($row = $db_info_getter->fetch(PDO::FETCH_ASSOC))
@@ -903,7 +906,7 @@
 											<form name = "lecturer_admin_remove_post" action = "" method = "POST">
 												<input type = "hidden" name = "choosen_faculty" value = "<?= $_POST['choosen_faculty']?>"/>
 												<input type = "hidden" name = "remove_lecturer_field" value = "<?= $row['id_user']?>"></input>
-												<input type = "submit" name = "remove_lecturer_button" value = "Удалить"/>
+												<input type = "submit" name = "remove_lecturer_button" value = "Г“Г¤Г Г«ГЁГІГј"/>
 											</form>
 										</td>
 									</tr>
@@ -914,21 +917,21 @@
 						</div>
 						<br/>
 						<div class = "add_new_lecturer_place" style = "border: ridge 1px black;">
-							<label>Добавление новой записи:</label>
+							<label>Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ Г­Г®ГўГ®Г© Г§Г ГЇГЁГ±ГЁ:</label>
 							<br/>
 							<?php //<form name = "add_new_lecturer_form" action = "" method = "POST"> ?>
 							<div class = "new_lecturer_name_field">
-								<label class = "new_lecturer_name_label">ФИО:</label>
+								<label class = "new_lecturer_name_label">Г”Г€ГЋ:</label>
 								<br/>
 								<input type = "text" name = "new_lecturer_record_name" value = ""></input>
 							</div>
 							<div class = "new_lecturer_degree_field">
-								<label class = "new_lecturer_degree_label">Ученая степень:</label>
+								<label class = "new_lecturer_degree_label">Г“Г·ГҐГ­Г Гї Г±ГІГҐГЇГҐГ­Гј:</label>
 								<br/>
 								<input type = "text" name = "new_lecturer_record_degree" value = ""></input>
 							</div>
 							<div class = "new_lecturer_department_field">
-								<label class = "new_lecturer_department_label">Введите кафедру:</label>
+								<label class = "new_lecturer_department_label">Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ ГґГҐГ¤Г°Гі:</label>
 								<select name = "new_lecturer_record_department">
 									<?php
 									$get_all_lecturer_department_request = "Select department from schedule.department where faculty = '".$_POST['choosen_faculty']."';";
@@ -943,7 +946,7 @@
 								</select>
 							</div>
 							<br/>
-							<input type = "submit" name = "add_new_lecturer_button" value = "Добавить"/>
+							<input type = "submit" name = "add_new_lecturer_button" value = "Г„Г®ГЎГ ГўГЁГІГј"/>
 					<?php //</form>?>
 						</div>
 				<?php
@@ -956,17 +959,17 @@
 						<div class = "table_content_list">
 							<table border = '1'>
 								<tr>
-									<td align = "center">Ид</td>
-									<td align = "center">День недели</td>
-									<td align = "center">Номер пары</td>
-									<td align = "center">Группа</td>
-									<td align = "center">Предмет</td>
-									<td align = "center">Преподаватель</td>
-									<td align = "center">Тип занятия</td>
-									<td align = "center">Аудитория</td>
-									<td align = "center">Кол-во групп на паре</td>
-									<td align = "center">Четность</td>
-									<td align = 'center'>Функции</td>
+									<td align = "center">Г€Г¤</td>
+									<td align = "center">Г„ГҐГ­Гј Г­ГҐГ¤ГҐГ«ГЁ</td>
+									<td align = "center">ГЌГ®Г¬ГҐГ° ГЇГ Г°Г»</td>
+									<td align = "center">ГѓГ°ГіГЇГЇГ </td>
+									<td align = "center">ГЏГ°ГҐГ¤Г¬ГҐГІ</td>
+									<td align = "center">ГЏГ°ГҐГЇГ®Г¤Г ГўГ ГІГҐГ«Гј</td>
+									<td align = "center">Г’ГЁГЇ Г§Г Г­ГїГІГЁГї</td>
+									<td align = "center">ГЂГіГ¤ГЁГІГ®Г°ГЁГї</td>
+									<td align = "center">ГЉГ®Г«-ГўГ® ГЈГ°ГіГЇГЇ Г­Г  ГЇГ Г°ГҐ</td>
+									<td align = "center">Г—ГҐГІГ­Г®Г±ГІГј</td>
+									<td align = 'center'>Г”ГіГ­ГЄГ¶ГЁГЁ</td>
 								</tr>
 		<?php
 								/*while($group_ids = $db_group_name_getter->fetch(PDO::FETCH_ASSOC))
@@ -1041,7 +1044,7 @@
 												echo $row['subgroup'];
 												/*if($row['subgroup'] == 2)
 												{
-													echo "Полная группа";
+													echo "ГЏГ®Г«Г­Г Гї ГЈГ°ГіГЇГЇГ ";
 												}
 												else
 												{
@@ -1053,22 +1056,22 @@
 											<?php 
 												if($row['parity'] == 0)
 												{
-													echo "Всегда";
+													echo "Г‚Г±ГҐГЈГ¤Г ";
 												}
 												else if($row['parity'] == 1)
 												{
-													echo $row['Нечетная'];
+													echo $row['ГЌГҐГ·ГҐГІГ­Г Гї'];
 												}
 												else if($row['parity'] == 2)
 												{
-													echo $row['Четная'];
+													echo $row['Г—ГҐГІГ­Г Гї'];
 												}
 											?>
 										</td>
 										<td>
 												<form name = "lesson_admin_remove_post" action = "" method = "POST">
 													<input type = "hidden" name = "remove_lesson_field" value = "<?= $row['id_lesson']?>"></input>
-													<input type = "submit" name = "remove_lesson_button" value = "Удалить"/>
+													<input type = "submit" name = "remove_lesson_button" value = "Г“Г¤Г Г«ГЁГІГј"/>
 												</form>
 										</td>
 									</tr>
@@ -1080,22 +1083,22 @@
 						</div>
 						<br/>
 						<div class = "add_new_lesson_place" style = "border: ridge 1px black;">
-							<label>Добавление новой записи:</label>
+							<label>Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ Г­Г®ГўГ®Г© Г§Г ГЇГЁГ±ГЁ:</label>
 							<br/>							
 							<div class = "new_lesson_day_field">
-								<label class = "new_lesson_day_label">День недели пары:</label>
+								<label class = "new_lesson_day_label">Г„ГҐГ­Гј Г­ГҐГ¤ГҐГ«ГЁ ГЇГ Г°Г»:</label>
 								<select name = "new_lesson_record_day">
-									<option value = "Понедельник">Понедельник</option>
-									<option value = "Вторник">Вторник</option>
-									<option value = "Среда">Среда</option>
-									<option value = "Четверг">Четверг</option>
-									<option value = "Пятница">Пятница</option>
-									<option value = "Суббота">Суббота</option>
-									<option value = "Воскресенье">Воскресенье</option>
+									<option value = "ГЏГ®Г­ГҐГ¤ГҐГ«ГјГ­ГЁГЄ">ГЏГ®Г­ГҐГ¤ГҐГ«ГјГ­ГЁГЄ</option>
+									<option value = "Г‚ГІГ®Г°Г­ГЁГЄ">Г‚ГІГ®Г°Г­ГЁГЄ</option>
+									<option value = "Г‘Г°ГҐГ¤Г ">Г‘Г°ГҐГ¤Г </option>
+									<option value = "Г—ГҐГІГўГҐГ°ГЈ">Г—ГҐГІГўГҐГ°ГЈ</option>
+									<option value = "ГЏГїГІГ­ГЁГ¶Г ">ГЏГїГІГ­ГЁГ¶Г </option>
+									<option value = "Г‘ГіГЎГЎГ®ГІГ ">Г‘ГіГЎГЎГ®ГІГ </option>
+									<option value = "Г‚Г®Г±ГЄГ°ГҐГ±ГҐГ­ГјГҐ">Г‚Г®Г±ГЄГ°ГҐГ±ГҐГ­ГјГҐ</option>
 								</select>
 							</div>
 							<div class = "new_lesson_pair_num_field">
-								<label class = "new_lesson_pair_num_label">Номер пары:</label>
+								<label class = "new_lesson_pair_num_label">ГЌГ®Г¬ГҐГ° ГЇГ Г°Г»:</label>
 								<select name = "new_lesson_record_pair_num">
 										<option value = "1">1</option>
 										<option value = "2">2</option>
@@ -1110,7 +1113,7 @@
 								</select>
 							</div>
 							<div class = "new_lesson_group_field">
-								<label class = "new_lesson_group_label">Группа:</label>
+								<label class = "new_lesson_group_label">ГѓГ°ГіГЇГЇГ :</label>
 								<select name = "new_lesson_record_group">
 									<?php
 										$get_group_list_request = "Select id_group, group_name from schedule.group where schedule.group.faculty = '".$_POST['choosen_faculty']."';";
@@ -1126,7 +1129,7 @@
 								</select>
 							</div>
 							<div class = "new_lesson_subject_field">
-								<label class = "new_lesson_subject_label">Предмет:</label>
+								<label class = "new_lesson_subject_label">ГЏГ°ГҐГ¤Г¬ГҐГІ:</label>
 								<select name = "new_lesson_record_subject">
 									<?php
 										$get_subject_list_request = "Select name from schedule.class where faculty = '".$_POST['choosen_faculty']."';";
@@ -1141,7 +1144,7 @@
 								</select>
 							</div>
 							<div class = "new_lesson_lector_field">
-								<label class = "new_lesson_lector_label">Преподаватель:</label>
+								<label class = "new_lesson_lector_label">ГЏГ°ГҐГЇГ®Г¤Г ГўГ ГІГҐГ«Гј:</label>
 								<select name = "new_lesson_record_lector">
 									<?php
 										$get_lecturer_list_request = "Select id_user, fio from schedule.lecturer;";
@@ -1156,30 +1159,30 @@
 								</select>
 							</div>
 							<div class = "new_lesson_type_num_field">
-								<label class = "new_lesson_type_label">Тип пары:</label>
+								<label class = "new_lesson_type_label">Г’ГЁГЇ ГЇГ Г°Г»:</label>
 								<select name = "new_lesson_record_type">
-										<option value = "лекция">Лекция</option>
-										<option value = "практика">Практика</option>
+										<option value = "Г«ГҐГЄГ¶ГЁГї">Г‹ГҐГЄГ¶ГЁГї</option>
+										<option value = "ГЇГ°Г ГЄГІГЁГЄГ ">ГЏГ°Г ГЄГІГЁГЄГ </option>
 								</select>
 							</div>
 							<div class = "new_lesson_classroom_field">
-								<label class = "new_lesson_classroom_label">Номер аудитории: </label>
+								<label class = "new_lesson_classroom_label">ГЌГ®Г¬ГҐГ° Г ГіГ¤ГЁГІГ®Г°ГЁГЁ: </label>
 								<input type = "text" name = "new_lesson_record_classroom" value = ""/>
 							</div>
 							<div class = "new_lesson_group_amount_field">
-								<label class = "new_lesson_group_amount_label">Кол-во групп на паре: </label>
+								<label class = "new_lesson_group_amount_label">ГЉГ®Г«-ГўГ® ГЈГ°ГіГЇГЇ Г­Г  ГЇГ Г°ГҐ: </label>
 								<input type = "text" name = "new_lesson_record_group_amount" value = ""/>
 							</div>
 							<div class = "new_lesson_parity_field">
-								<label class = "new_lesson_parity_label">Четность: </label>
+								<label class = "new_lesson_parity_label">Г—ГҐГІГ­Г®Г±ГІГј: </label>
 								<select name = "new_lesson_record_parity">
-									<option value = "0">Всегда</option>
-									<option value = "1">Нечетная</option>
-									<option value = "2">Четная</option>
+									<option value = "0">Г‚Г±ГҐГЈГ¤Г </option>
+									<option value = "1">ГЌГҐГ·ГҐГІГ­Г Гї</option>
+									<option value = "2">Г—ГҐГІГ­Г Гї</option>
 								</select>
 							</div>
 							<br/>
-							<input type = "submit" name = "add_new_lesson_button" value = "Добавить"/>
+							<input type = "submit" name = "add_new_lesson_button" value = "Г„Г®ГЎГ ГўГЁГІГј"/>
 							<?php //</form>?>
 						</div>
 		<?php
@@ -1192,9 +1195,9 @@
 						<div class = "table_content_list">
 							<table border = '1'>
 								<tr>
-									<td align = 'center'>Название специальности</td>
-									<td align = 'center'>Факулькутет</td>
-									<td align = 'center'>Функции</td>
+									<td align = 'center'>ГЌГ Г§ГўГ Г­ГЁГҐ Г±ГЇГҐГ¶ГЁГ Г«ГјГ­Г®Г±ГІГЁ</td>
+									<td align = 'center'>Г”Г ГЄГіГ«ГјГЄГіГІГҐГІ</td>
+									<td align = 'center'>Г”ГіГ­ГЄГ¶ГЁГЁ</td>
 								</tr>
 		<?php
 								while($row = $db_info_getter->fetch(PDO::FETCH_ASSOC))
@@ -1211,7 +1214,7 @@
 											<form name = "speciality_admin_remove_post" action = "" method = "POST">
 												<input type = "hidden" name = "choosen_faculty" value = "<?= $_POST['choosen_faculty']?>"/>
 												<input type = "hidden" name = "remove_speciality_field" value = "<?= $row['name_spec']?>"></input>
-												<input type = "submit" name = "remove_speciality_button" value = "Удалить"/>
+												<input type = "submit" name = "remove_speciality_button" value = "Г“Г¤Г Г«ГЁГІГј"/>
 											</form>
 										</td>
 									</tr>
@@ -1222,15 +1225,15 @@
 						</div>
 						<br/>
 						<div class = "add_new_speciality_place" style = "border: ridge 1px black;">
-							<label>Добавление новой записи:</label>
+							<label>Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ Г­Г®ГўГ®Г© Г§Г ГЇГЁГ±ГЁ:</label>
 							<br/>
 							<?php //<form name = "add_new_speciality_form" action = "" method = "POST"> ?>
 								<div class = "new_speciality_name_field">
-									<label class = "new_speciality_name_label">Название специальности:</label>
+									<label class = "new_speciality_name_label">ГЌГ Г§ГўГ Г­ГЁГҐ Г±ГЇГҐГ¶ГЁГ Г«ГјГ­Г®Г±ГІГЁ:</label>
 									<input type = "text" name = "new_speciality_record_name" value = ""/>
 								</div>
 								<br/>
-								<input type = "submit" name = "add_new_speciality_button" value = "Добавить"/>
+								<input type = "submit" name = "add_new_speciality_button" value = "Г„Г®ГЎГ ГўГЁГІГј"/>
 							<?php //</form>?>
 						</div>
 		<?php

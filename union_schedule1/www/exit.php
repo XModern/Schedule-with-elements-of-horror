@@ -1,13 +1,12 @@
-  <? 
+<?//ini_set('display_errors','Off');
    	session_start();
-  	echo $_SESSION['login'];
 
     unset($_SESSION['login']);
     unset($_SESSION['password']);
     unset($_SESSION['category']);
+    unset($_SESSION['error']);    
     session_destroy();
-
-   	echo $_SESSION['login'];
+  	header('Location:http://union_schedule1/');
 
 ?>
 
