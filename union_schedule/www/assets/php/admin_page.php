@@ -1,8 +1,31 @@
 <html>
 	<head>
-	
+	<title>CheckIT</title>
+	<meta charset="cp-1251">
+	<link type="text/css" rel="stylesheet" href="styles.css" />
 	</head>
 	<body>
+
+<div class="footer" action="exit.php">
+   
+    <div class="image">
+        <img src="images/logo11.png" alt="CHECKIT" width=100%/>
+    </div> 
+
+    <div class="panel">
+        
+    <form method="POST" action="exit.php" style="float:right;margin-right:1%;width:10%;">
+    <input type = "submit" name = "reg" value="Выйти" /> 
+    </form>
+    </div>
+    <img src="images/prostr1.jpg" alt="------" width=100% style="margin-top:-1%;"/>
+
+        <div class="navig" style = "float:left;height:10%;"> <a href="index.php"> Главная страница </a> </div>
+        <div class="navig" style = "float:right;height:10%;"> <a href="auth.php"> Управление </a> </div>
+</div>
+
+<div style="width:90%; margin:2% 4% 5% 4%;padding:1%;background-color:rgba(200,200,250,0.5);"> 
+
 	<?php
 		require_once("/connector.php");
 
@@ -333,7 +356,7 @@
 	?>
 	
 		<?//user_choose_form BEGIN?>
-		<div id = "user_choose_div" style = "border: ridge 5px black;">
+		<div id = "user_choose_div" style = "border: ridge 1px black;">
 			<form name = "user_choose_form" action = "" method = "POST">
 		<?php
 				$db_info_getter_request = "Select * from schedule.user;";
@@ -555,7 +578,7 @@
 		<?lecturer_choose_form END*/?>
 		<br/>
 		<?//faculty_add_form BEGIN?>
-		<div id = "faculty_add_div" style = "border: ridge 5px black;">
+		<div id = "faculty_add_div" style = "border: ridge 1px black;">
 			<form name = "faculty_choose_form" action = "" method = "POST">
 			<?php
 				$db_info_getter_request = "Select * from schedule.faculty;";
@@ -646,7 +669,7 @@
 		</div>
 		<?//faculty_add_form END?>
 		<br/>
-		<div id = "admin_panel" style = "border: ridge 5px black;">
+		<div id = "admin_panel" style = "border: ridge 1px black;">
 			<label>Вы сейчас работаете с факультетом: <?php echo $_POST['choosen_faculty'];?></label>
 			<form name = "faculty_change_form" action = "" method = "POST">
 				<div class = "faculty_choose_field">
@@ -2187,5 +2210,15 @@
 		}
 		?>
 		</div>
+
+	</div>	
+
+	<div class="footer" style=" width:100%; height: 10%; background-color: white; margin-top:10%;padding:1% 0 0 0;">
+                <label style = "font-size:12pt; margin-left:35%;">© 2017 | </label>
+                <a href = "https://vk.com/id70585011">Сидак В. |</a>
+                <a href = "https://vk.com/id65914030">Гарная М. |</a> 
+                <a href = "https://vk.com/id35156376">Синицын Д. |</a> 
+                <a href = "https://vk.com/i140641209">Поричанский В.</a>  
+	</div>
 	</body>
 </html>

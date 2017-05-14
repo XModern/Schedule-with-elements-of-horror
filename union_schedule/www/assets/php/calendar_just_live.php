@@ -90,18 +90,18 @@ else
 }
 //month check END
 
-$month_names_arr = array("1" => "January", 
-						"2" => "February", 
-						"3" => "March", 
-						"4" => "April", 
-						"5" => "May", 
-						"6" => "June", 
-						"7" => "July", 
-						"8" => "August",
-						"9" => "September", 
-						"10" => "October", 
-						"11" => "November", 
-						"12" => "December");
+$month_names_arr = array("1" => "Январь", 
+						"2" => "Феварль", 
+						"3" => "Март", 
+						"4" => "Апрель", 
+						"5" => "Май", 
+						"6" => "Июнь", 
+						"7" => "Июль", 
+						"8" => "Август",
+						"9" => "Сентябрь", 
+						"10" => "Октябрь", 
+						"11" => "Ноябрь", 
+						"12" => "Декабрь");
 
 $month_start = mktime(0, 0, 0, $month, 1, $year);//first day of current chosen month and year
 //echo "<br/>".$month_start;
@@ -129,41 +129,39 @@ $prev_month = date ("m", $getting_prev_month_time);
 //echo $getting_prev_month_time." = ".$prev_month;
 //
 ?>
-<div class = "calendar">
-	<form name = "embedded_calendar_form" action = "" method = "POST">
+<div class = "calendar" style="width:100%;height:100%; background-color:white;padding:1%;">
+	<form name = "embedded_calendar_form" action = "" method = "POST" style="width:96%;height:96%;">
 		<div class = "calendar_table" align = "center">
-			<table border = '5'>
-				<tr>
-					<td colspan = '7' class = 'calendar_year' align = 'center'>
-						<?php echo $year?>
+			<table>
+				<div style = "width:100%; height:1%; background-color:blue; border-radius:20px 20px 0 0;"></div>
+
+				<div style = "border:3px;padding: 2% 0 2% 0; margin-bottom:6%;">
+					<p class = 'calendar_month' align = 'left' style="width:70%;margin:0%;float:left;margin-left:2%;">
+						<?php echo $month_names_arr[$month]?> </p>
+					<label class = 'calendar_year' align = 'right' style="float:right;width:20%;margin-right:1%;">
+						<?php echo $year?> </label>
+				</div>
+				<tr style="padding:0;marign:0; background-color:#909090;">
+					<td style="width:14.3%; border:1px solid; background-color:#aaa;color:white;margin:0;padding:0; font:9pt sans-serif">
+						<font>Пн</font>
 					</td>
-				</tr>
-				<tr>
-					<td colspan = '7' class = 'calendar_month' align = 'center'>
-						<?php echo $month_names_arr[$month]?>
+					<td style="width:14.3%; border:1px solid; background-color:#aaa;color:white;margin:0;padding:0;font:9pt sans-serif">
+						<font>Вт</font>
 					</td>
-				</tr>
-				<tr>
-					<td>
-						<font>Mon</font>
+					<td style="width:14.3%; border:1px solid;  background-color:#aaa;color:white;margin:0;padding:0;font:9pt sans-serif">
+						<font>Ср</font>
 					</td>
-					<td>
-						<font>Tue</font>
+					<td style="width:14.3%; border:1px solid;  background-color:#aaa;color:white;margin:0;padding:0;font:9pt sans-serif">
+						<font>Чт</font>
 					</td>
-					<td>
-						<font>Wed</font>
+					<td style="width:14.3%;border:1px solid;  background-color:#aaa;color:white;margin:0;padding:0;font:9pt sans-serif">
+						<font>Пт</font>
 					</td>
-					<td>
-						<font>Thu</font>
+					<td style="width:14.3%; border:1px solid white; background-color:#aaa;color:red;margin:0;padding:0;font:9pt sans-serif">
+						<font>Сб</font>
 					</td>
-					<td>
-						<font>Fri</font>
-					</td>
-					<td>
-						<font>Sat</font>
-					</td>
-					<td>
-						<font>Sun</font>
+					<td style="width:14.3%; border:1px solid white; background-color:#aaa;color:red;margin:0;padding:0;font:9pt sans-serif">
+						<font>Вс</font>
 					</td>
 				</tr>
 				<tr>
@@ -279,18 +277,18 @@ $prev_month = date ("m", $getting_prev_month_time);
 						}
 						//check if date we have $year, $month, $day is holiday END
 						
-						$color = "white";
+						$color = "black";
 						if($cell_type == "today")
 						{
-							$color = "yellow";
+							$color = "blue";
 						}
 						else if($cell_type == "holiday")
 						{
-							$color = "red";
+							$color = "gray";
 						}
 				?>
-					<td bgcolor = '<?= $color?>'>
-						<label><?echo $day;?></label>
+					<td style = "height:30px;">
+						<label style="color:<?= $color?>"><?echo $day;?></label>
 					</td>	
 				<?php
 						$day++;
@@ -308,8 +306,12 @@ $prev_month = date ("m", $getting_prev_month_time);
 			<input type = "hidden" name = "next_year" value = <?= $next_year?>></input>
 			<input type = "hidden" name = "prev_month" value = <?= $prev_month?>></input>
 			<input type = "hidden" name = "next_month" value = <?= $next_month?>></input>
-			<input type = "submit" name = "left_button" value = "<"/>
-			<input type = "submit" name = "right_button" value = ">"/>
+			<div style="float:left;bottom:1px;width:50%;margin-top:10%;height:10%;">
+				<input type = "submit" name = "left_button" value = "<" style="width:100%; color:red; background-color:white;height:100%;"/>
+			</div>
+			<div style="float:right;bottom:1px;width:50%;margin-top:10%;height:10%;">
+				<input type = "submit" name = "right_button" value = ">" style="width:100%; color:red; background-color:white;height:100%;"/>
+			</div>
 		</div>
 	</form>
 </div>
