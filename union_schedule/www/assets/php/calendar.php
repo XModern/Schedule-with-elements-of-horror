@@ -1,7 +1,18 @@
-<a href = "\assets\php\admin_page.php">Admin Page</a>
 <?php
 
 /*place for bd connection*/
+require_once("/connector.php");
+/*$get_all_event_dates_request = "Select date from announcements;";
+$get_all_event_dates = $server_connect_pdo->query($get_all_event_dates_request);
+
+//$array_events[];
+$row;
+while($row = $get_all_event_dates->fetch(PDO::FETCH_ASSOC))
+{
+	$array_events[] = $row['date'];
+}
+print_r($row);*/
+
 $year;
 $month;
 $day = 1;
@@ -188,9 +199,10 @@ $prev_month = date ("m", $getting_prev_month_time);
 					}
 					
 					//echo "20".date('y')."-".date('m')."-".date('d')."<br/>"; 
-					
+					echo $maxdays."<br/>";
 					while($day <= $maxdays)
 					{
+						//echo $day."<br/>";
 						if($weekday == 7)//if weekday == Saturday then creating new row
 						{
 				?>
@@ -268,12 +280,65 @@ $prev_month = date ("m", $getting_prev_month_time);
 							$cell_type = "casual";
 						}
 						
+						//echo $day."<br/>";
+						$get_all_event_dates_request = "";
+						if($_SESSION['category'] == "lecturer" || $_SESSION['category'] == "decanat")
+						{
+							$get_all_event_dates_request = "Select date from announcements;";
+							//$get_all_event_dates = $server_connect_pdo->query($get_all_event_dates_request);
+						}
+						else if($_SESSION['category'] == "student")
+						{
+							$get_all_event_dates_request = "SELECT advert.date FROM advert where faculty = '".$faculty."'
+															UNION
+															SELECT announcement.date FROM announcement WHERE faculty = '".$faculty."';";
+							//$get_all_event_dates = $server_connect_pdo->query($get_all_event_dates_request);
+						}
+						$get_all_event_dates = $server_connect_pdo->query($get_all_event_dates_request);
+						/*while($row = $get_all_event_dates->fetch(PDO::FETCH_ASSOC))*/
+						//for($i = 0; $i< count($row); $i++)
+						while($row = $get_all_event_dates->fetch(PDO::FETCH_ASSOC))
+						{
+							//echo $day."<br/>";
+							$month_for_comp;
+							$day_for_comp;
+							$date_for_comp;
+							if($month< 10)
+							{
+								$month_for_comp = "0".$month;
+							}
+							else
+							{
+								 $month_for_comp = $month;
+							}
+							
+							if($day< 10)
+							{
+								$day_for_comp = "0".$day;
+							}
+							else
+							{
+								 $day_for_comp = $day;
+							}
+							//$date_for_comp = date('y-m-d'); 
+							$date_for_comp = $year."-".$month_for_comp."-".$day_for_comp;
+							//echo $date_for_comp." = ".$row['date']."<br/>";
+							
+							//echo $date_for_comp." = ".$row['date']."<br/>";
+						
+							if($date_for_comp == "".$row['date'])
+							{
+								//echo "a";
+								$cell_type = "event";
+							}							
+						}
+						
 						//check if date we have $year, $month, $day is current date END
 						
 						//check if date we have $year, $month, $day is holiday BEGIN
 						if($weekday == 5 || $weekday == 6)
 						{
-							if($cell_type != "today")
+							if(($cell_type != "today")&&($cell_type != "event"))
 							{
 								$cell_type = "holiday";
 							}
@@ -283,11 +348,15 @@ $prev_month = date ("m", $getting_prev_month_time);
 						$color = "white";
 						if($cell_type == "today")
 						{
-							$color = "yellow";
+							$color = "green";
 						}
 						else if($cell_type == "holiday")
 						{
 							$color = "red";
+						}
+						else if($cell_type == "event")
+						{
+							$color = "#d8ff7c";
 						}
 				?>
 					<td bgcolor = '<?= $color?>'>
@@ -305,6 +374,13 @@ $prev_month = date ("m", $getting_prev_month_time);
 			</table>
 		</div>
 		<div class = "calendar_control_panel" align = "center">
+	<? //$faculty=$_POST['faculty'];
+      //$course=$_POST['course']; 
+	//echo  "!!!!".$_POST['faculty']." ".$_POST['course'];?>
+
+      			<input type = "hidden" name = "faculty" value = "<?= $_POST['faculty']?>"></input>
+			<input type = "hidden" name = "course" value = <?= $_POST['course']?>></input>
+
 			<input type = "hidden" name = "prev_year" value = <?= $prev_year?>></input>
 			<input type = "hidden" name = "next_year" value = <?= $next_year?>></input>
 			<input type = "hidden" name = "prev_month" value = <?= $prev_month?>></input>

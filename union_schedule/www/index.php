@@ -3,7 +3,7 @@
 <title>CheckIT</title>
 <meta charset="cp-1251">
 <link type="text/css" rel="stylesheet" href="styles/styles.css" />
-<script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+<script src="/js/jquery-3.1.1.min.js"></script>
 <script>
     $(document).ready(function(){  
         PopUpHide();
@@ -47,15 +47,29 @@
     </div> 
 
     <div class="panel">
-        
-    <label> <a href = "javascript:PopUpShow()" style="text-decoration:none;">Войти</a></label>
+    <? if (isset($_SESSION['category'])){
+        ?>
+    <form method="POST" action="exit.php" style="float:right;margin-right:1%;width:10%;">
+    <input type = "submit" name = "reg" value="Выйти" /> 
+    </form>
+        <?} else { ?>
 
-    <input type = "button" name = "reg" value="Зарегестрироваться"/> 
+
+    <a href = "javascript:PopUpShow()" style="text-decoration:none;">Войти</a>
+    <form name = "goToReg" method="POST" action = "registration.php" style="width:10%;float:right;margin-right:7%;height:80%;padding:0;">
+    <input type = "submit" name = "reg" value="Зарегестрироваться" /> 
+    </form>
+    <? } ?>
+
     </div>
     <!-- <a href="http://www.univer.kharkov.ua/ru">Г•Г Г°ГјГЄГ®ГўГ±ГЄГЁГ© Г­Г Г¶ГЁГ®Г­Г Г«ГјГ­Г»Г© ГіГ­ГЁГўГҐГ°Г±ГЁГІГҐГІ ГЁГ¬ГҐГ­ГЁ Г‚. ГЌ. ГЉГ Г°Г Г§ГЁГ­Г </a> -->
     <img src="images/prostr1.jpg" alt="------" width=100% style="margin-top:-1%;"/>
 
-
+    <? if (isset($_SESSION['category'])){
+        ?>
+        <div class="navig" style = "float:left;height:10%;"> <a href="index.php"> Главная страница </a> </div>
+        <div class="navig" style = "float:right;height:10%;"> <a href="auth.php"> Управление </a> </div>
+   <? } ?>
 </div>
 
 

@@ -1,6 +1,6 @@
 <? session_start(); 
 require_once('MyConfig.php');
-//echo "С корабля на бар. Добавить ансеты"." ".$_SESSION['category'];
+//echo "Г‘ ГЄГ®Г°Г ГЎГ«Гї Г­Г  ГЎГ Г°. Г„Г®ГЎГ ГўГЁГІГј Г Г­Г±ГҐГІГ»"." ".$_SESSION['category'];
 if (isset($_SESSION['category'])){
 if ($_SESSION['category'] == "lecturer" || $_SESSION['category'] == "decanat"){
      
@@ -37,15 +37,14 @@ while ($row11 = $stmt11->fetch()){
 
     <div class="panel">
         
-    <form method="POST" action="exit.php">
-    <input type = "submit" name = "reg" value="Выйти" style="float:right;margin-right:1%;"/> 
+    <form method="POST" action="exit.php" style="float:right;margin-right:1%;width:10%;">
+    <input type = "submit" name = "reg" value="Выйти" /> 
     </form>
     </div>
     <img src="images/prostr1.jpg" alt="------" width=100% style="margin-top:-1%;"/>
 
-        <div class="foot">
-    
-        </div>
+        <div class="navig" style = "float:left;height:10%;"> <a href="index.php"> Главная страница </a> </div>
+        <div class="navig" style = "float:right;height:10%;"> <a href="auth.php"> Управление </a> </div>
 </div>
 
 <div class="content">
@@ -91,14 +90,14 @@ foreach ($days as $value1){
           </td> <?
         }
         while ($row = $stmt->fetch()){
-          if ($row['degree'] == "доцент"){
+          if ($row['degree'] == "Г¤Г®Г¶ГҐГ­ГІ"){
             $deg = substr($row['degree'], 0,3);
 
           } else {
-            if ($row['degree'] == "старший преподаватель"){
+            if ($row['degree'] == "Г±ГІГ Г°ГёГЁГ© ГЇГ°ГҐГЇГ®Г¤Г ГўГ ГІГҐГ«Гј"){
               $deg = substr($row['degree'], 0,2).".".substr($row['degree'], 8,4);
             } else { 
-              if ($row['degree'] == "профессор"){
+              if ($row['degree'] == "ГЇГ°Г®ГґГҐГ±Г±Г®Г°"){
                 $deg = substr($row['degree'], 0,4);
               } 
             }
@@ -163,14 +162,14 @@ foreach ($days as $value1){
                                         $i1 = strripos($fio1," ");
                                         $name1 = substr($fio1, $i1+1,1);
                                         $surname1 = substr($fio1, 0,$i1+1);
-                                  if ($row5['degree'] == "доцент"){
+                                  if ($row5['degree'] == "Г¤Г®Г¶ГҐГ­ГІ"){
                                     $deg1 = substr($row5['degree'], 0,3);
 
                                   } else {
-                                    if ($row5['degree'] == "старший преподаватель"){
+                                    if ($row5['degree'] == "Г±ГІГ Г°ГёГЁГ© ГЇГ°ГҐГЇГ®Г¤Г ГўГ ГІГҐГ«Гј"){
                                       $deg1 = substr($row5['degree'], 0,2).".".substr($row5['degree'], 8,4);
                                     } else { 
-                                      if ($row5['degree'] == "профессор"){
+                                      if ($row5['degree'] == "ГЇГ°Г®ГґГҐГ±Г±Г®Г°"){
                                         $deg1 = substr($row5['degree'], 0,4);
                                       } 
                                     }
@@ -331,8 +330,10 @@ foreach ($days as $value1){
  </div>
 
 <div class="sydebar">
-    <label>Место для каленадря (тут уже с событиями)</label>
-
+    <?php
+       //echo $_POST['faculty']." ".$_POST['course'];
+    require("\assets\php\calendar.php");
+  ?>
 </div>
 </body>
 

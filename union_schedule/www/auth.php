@@ -22,21 +22,20 @@ session_start();?>
 
     <div class="panel">
         
-    <form method="POST" action="exit.php">
-    <input type = "submit" value="Выйти" style="float:right;margin-right:1%;"/> 
-	</form>
+    <form method="POST" action="exit.php" style="float:right;margin-right:1%;width:10%;">
+    <input type = "submit" name = "reg" value="Выйти" /> 
+    </form>
     </div>
     <img src="images/prostr1.jpg" alt="------" width=100% style="margin-top:-1%;"/>
 
-        <div class="foot">
-    
-        </div>
+        <div class="navig" style = "float:left;height:10%;"> <a href="index.php"> Главная страница </a> </div>
+        <div class="navig" style = "float:right;height:10%;"> <a href="auth.php"> Управление </a> </div>
 </div>
 
 
 <div class="sydebar">
 	<?php
-		require("\assets\php\calendar.php");
+		require("\assets\php\calendar_just_live.php");
 	?>
 
 </div>
@@ -68,7 +67,7 @@ session_start();?>
 
 		 if ($row['user_category'] == "lecturer" || $row['user_category'] == "decanat" ){
 		 	
-		 	?> <label>Вы авторизовались как <? if ($row['user_category'] == "lecturer"){echo "преподаватель" ;}
+		 	?> <label> Вы авторизовались как <? if ($row['user_category'] == "lecturer"){echo "преподаватель" ;}
 
 		 			else {echo "деканат";}   ?></label> <br/>
 
@@ -107,7 +106,7 @@ session_start();?>
 			
 					</select>
 
-					<input type = "submit" value="Просмотреть"/><br/>
+					<input type = "submit" value="Просмотреть расписания"/><br/>
 					</fieldset>
 		 		</form>
 		 		
@@ -115,7 +114,7 @@ session_start();?>
 		 			<legend>Управление</legend>
 
 		 			<? if ($_SESSION['category'] == "decanat"){ ?>
-		 		<a href = "\assets\php\admin_page.php">Управление </a><br/>  
+		 		<a href = "\assets\php\admin_page.php">Страница администрирования</a><br/>  
 		 		<? } else {
 		 			if ($_SESSION['category'] == "lecturer"){?>
 		 				<a href = "">Анонсы</a><br/>  
@@ -127,6 +126,7 @@ session_start();?>
 		 if($row['user_category'] == "student"){
 		 		 
 		 	 $stmt1 = $pdo->query('SELECT * FROM student WHERE (id_user="'.$row['id_user'].'")');
+		 	 if ($stmt->rowCount() != 0){
 		 	 while ($row1 = $stmt1->fetch()){
 		 	 		
 		 		 $_SESSION['group']=$row1['group'];
@@ -135,16 +135,17 @@ session_start();?>
 
 		 		 //echo $_SESSION['group'];
 		 		 ?> <label> Вы авторизовались как студент</label> <br/>
-		 		 <a href="lessonView.php">Распиcание</a><br/>
-		 		 <a href="" >Каленадрь событий</a><br/>
+		 		 <a href="lessonView.php">Просмотр расписания</a><br/>
 		 		 <?
 		 		} 
-		 	
+		 	} else {
+		 		echo "Вы не подключены к курсу. Обратитесь в деканат.";
+		 	}
 		 }
 		}
 
  	}
-} else {echo  "Неверно введены данные";}
+} else {echo  "Неверно введены данные.";}
 ?> 
 
 
